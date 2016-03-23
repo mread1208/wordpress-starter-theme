@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<section id="banner" class="bootstrap-strip">
+	<section id="banner">
 		<div class="container">
 			<div id="banner-image" class="blog-banner">
 				<h2>Blog</h2>
@@ -10,9 +10,7 @@
 		<div class="container">
 			<div class="row">
 				<div id="primary" class="col-md-8">
-					<?php while (have_posts()) : the_post(); 
-						//Sets post view
-						setPostViews(get_the_ID()); ?>
+					<?php while (have_posts()) : the_post(); ?>
 						<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 							<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
 							<div class="blog-entry">

@@ -1,5 +1,6 @@
 <?php
 	include_once('inc/custom-posts.php');
+	include_once('inc/wp_bootstrap_navwalker.php');
 	// Add RSS links to <head> section
 	add_theme_support( 'automatic-feed-links');
 	
@@ -8,8 +9,7 @@
 	function mread_load_scripts() {
 		if ( !is_admin() ) {
 		   wp_deregister_script('jquery');
-		   wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false);
-		   wp_register_script('bxslider', get_template_directory_uri().'/js/jquery.bxslider.min.js', true);
+		   wp_register_script('jquery', ("https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"), false);
 		   wp_register_script('jsfunctions', get_template_directory_uri().'/js/functions.js', true);
 		   wp_register_script('bootstrap', get_template_directory_uri().'/js/bootstrap.min.js', '', '', true);
 		   
@@ -67,41 +67,6 @@
 	}
 	add_action( 'init', 'register_my_menus' );
 	
-	function mr_default_menu() {
-		echo '<div id="primary_menu" class="navigation">';
-		echo '<ul><li><a href="'.site_url().'/wp-admin/nav-menus.php">Set Up Your Menu</a></li></ul>';
-		echo '</div>';
-	}
-	
-	function format_comment($comment, $args, $depth) {
-    
-       $GLOBALS['comment'] = $comment; ?>
-       
-        <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
-            
-            <div class="comment-thumb ext2">
-            	<?php echo get_avatar( get_the_author_meta('ID'), 91, '', '' ); ?>
-            </div>
-            <div class="comment-body ext10">
-	            <div class="comment-header"> 
-	                <h4><?php printf(__('%s'), get_comment_author_link()) ?></h4>
-	                <a class="comment-permalink" href="<?php echo htmlspecialchars ( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s'), get_comment_date(), get_comment_time()) ?></a>
-	                <div class="clear"></div>
-	            </div>
-	            <div class="comment-content">
-		            <?php if ($comment->comment_approved == '0') : ?>
-		                <em><php _e('Your comment is awaiting moderation.') ?></em><br />
-		            <?php endif; ?>
-		            <?php comment_text(); ?>            
-		            <div class="reply">
-		                <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-		            </div><?php // .reply ?>
-		            <div class="clear"></div>
-				</div><?php // comment-content ?>
-				<div class="clear"></div>
-	        </div><?php // comment-body ?>
-	        <div class="clear"></div>
-<?php }
 	
 	//Excerpt Filter
 	function string_limit_words($string, $word_limit)
@@ -111,33 +76,7 @@
 	  array_pop($words);
 	  return implode(' ', $words);
 	}
-	
-	// function to display number of posts.
-	function getPostViews($postID){
-	    $count_key = 'post_views_count';
-	    $count = get_post_meta($postID, $count_key, true);
-	    if($count==''){
-	        delete_post_meta($postID, $count_key);
-	        add_post_meta($postID, $count_key, '0');
-	        return "0 View";
-	    }
-	    return $count.' Views';
-	}
-	
-	// function to count views.
-	function setPostViews($postID) {
-	    $count_key = 'post_views_count';
-	    $count = get_post_meta($postID, $count_key, true);
-	    if($count==''){
-	        $count = 0;
-	        delete_post_meta($postID, $count_key);
-	        add_post_meta($postID, $count_key, '0');
-	    }else{
-	        $count++;
-	        update_post_meta($postID, $count_key, $count);
-	    }
-	}
-	
+		
 	/*
 	 * Helper function to return the theme option value. If no value has been saved, it returns $default.
 	 * Needed because options are saved as serialized strings.
@@ -159,120 +98,6 @@
 			}
 		}
 	}	
-	
-	
-	//Adds class to dropdown menus
-	class SH_Last_Walker extends Walker_Nav_Menu{
-	
-	   function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
-	
-	        $id_field = $this->db_fields['id'];
-	
-	       //If the current element has children, add class 'sub-menu'
-	       if( isset($children_elements[$element->$id_field]) ) { 
-	            $classes = empty( $element->classes ) ? array() : (array) $element->classes;
-	            $classes[] = 'has-sub-menu';
-	            $element->classes =$classes;
-	       }
-	        // We don't want to do anything at the 'top level'.
-	        if( 0 == $depth )
-	            return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-	
-	        //Get the siblings of the current element
-	        $parent_id_field = $this->db_fields['parent'];      
-	        $parent_id = $element->$parent_id_field;
-	        $siblings = $children_elements[ $parent_id ] ;
-	
-	        //No Siblings?? 
-	        if( ! is_array($siblings) )
-	            return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-	
-	        //Get the 'last' of the siblings.
-	        $last_child = array_pop($siblings);
-	        $id_field = $this->db_fields['id'];
-	
-	            //If current element is the last of the siblings, add class 'last'
-	        if( $element->$id_field == $last_child->$id_field ){
-	            $classes = empty( $element->classes ) ? array() : (array) $element->classes;
-	            $classes[] = 'last';
-	            $element->classes =$classes;
-	        }
-	
-	        return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-	    }
-	}
-	
-	function display_social_icons($icon_size) {
-		$icons = array();
-		if(of_get_option('facebook')) {
-			$facebook = '<li><a href="'.of_get_option('facebook').'" target="_blank"><img src="'.get_bloginfo('template_url').'/images/social-icons/facebook'.$icon_size.'.png" alt="'.get_bloginfo('name').' Facebook Page" /></a></li>';
-			$icons[] = $facebook;
-		}
-		if(of_get_option('twitter')) {
-			$twitter = '<li><a href="'.of_get_option('twitter').'" target="_blank"><img src="'.get_bloginfo('template_url').'/images/social-icons/twitter'.$icon_size.'.png" alt="'.get_bloginfo('name').' Twitter Page" /></a></li>';
-			$icons[] = $twitter;
-		}
-		if(of_get_option('linkedin')) {
-			$linkedin = '<li><a href="'.of_get_option('linkedin').'" target="_blank"><img src="'.get_bloginfo('template_url').'/images/social-icons/linkedin'.$icon_size.'.png" alt="'.get_bloginfo('name').' Linkedin Page" /></a></li>';
-			$icons[] = $linkedin;
-		}
-		if(of_get_option('youtube')) {
-			$youtube = '<li><a href="'.of_get_option('youtube').'" target="_blank"><img src="'.get_bloginfo('template_url').'/images/social-icons/youtube'.$icon_size.'.png" alt="'.get_bloginfo('name').' Youtube Page" /></a></li>';
-			$icons[] = $youtube;
-		}
-		if(of_get_option('pinterest')) {
-			$pintrest = '<li><a href="'.of_get_option('pinterest').'" target="_blank"><img src="'.get_bloginfo('template_url').'/images/social-icons/pinterest'.$icon_size.'.png" alt="'.get_bloginfo('name').' Pinterest Page" /></a></li>';
-			$icons[] = $pintrest;
-		} 
-		if(1 == of_get_option('rss')) {
-			$rss = '<li><a href="'.get_bloginfo('rss_url').'" target="_blank"><img src="'.get_bloginfo('template_url').'/images/social-icons/rss'.$icon_size.'.png" alt="Subscribe to '.get_bloginfo('name').'\'s Blog Feed" /></a></li>';
-			$icons[] = $rss;
-		}
-		if(empty($icons)) {
-			// Do nothing
-		} else {
-			echo '<div id="social" class="navigation"><ul>';
-			foreach($icons as $icon) {
-				echo $icon;
-			}
-			echo '</ul></div>';
-		}
-	}
-	
-	function pagination($pages = '', $range = 4) {  
-	     $showitems = ($range * 2)+1;  
-
-	     global $paged;
-	     if(empty($paged)) $paged = 1;
-	 
-	     if($pages == '') {
-	         global $wp_query;
-	         $pages = $wp_query->max_num_pages;
-	         if(!$pages)
-	         {
-	             $pages = 1;
-	         }
-	     }   
-	 
-	     if(1 != $pages)
-	     {
-	         echo "<div class=\"pagination\"><span>Page ".$paged." of ".$pages."</span>";
-	         if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo; First</a>";
-	         if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo; Previous</a>";
-	 
-	         for ($i=1; $i <= $pages; $i++)
-	         {
-	             if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
-	             {
-	                 echo ($paged == $i)? "<span class=\"current\">".$i."</span>":"<a href='".get_pagenum_link($i)."' class=\"inactive\">".$i."</a>";
-	             }
-	         }
-	 
-	         if ($paged < $pages && $showitems < $pages) echo "<a href=\"".get_pagenum_link($paged + 1)."\">Next &rsaquo;</a>";  
-	         if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>Last &raquo;</a>";
-	         echo "</div>\n";
-	     }
-	}
 	
 	// The code below finds the menu item with the class "[CPT]-menu-item" and adds another “current_page_parent” class to it.
 	// Furthermore, it removes the “current_page_parent” from the blog menu item, if this is present. 
