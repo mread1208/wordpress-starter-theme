@@ -1,0 +1,14 @@
+	<footer id="footer" class="bootstrap-strip">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p>&copy;<?php echo date("Y"); echo " "; bloginfo('name'); ?></p>
+				</div>
+				<div class="clear"></div>
+			</div><?php // .row ?>
+		</div><?php // .container ?>
+	</footer><?php  //#footer ?>
+	<?php wp_footer(); ?>
+</body>
+
+</html>
