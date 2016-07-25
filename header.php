@@ -13,9 +13,6 @@
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-	
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" />
-	<link href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 	<?php wp_head(); ?>
