@@ -2,7 +2,10 @@
 Theme Name: MRead Starter Theme
 Description: Blank starter theme based off the blank wordpress theme by Chris Coyier
 Author: Michael Read
-Author URI: http://ist.greenville.edu/~mread
+Author URI: http://www.michaelcread.com
+Template:		centreforge
+Version:		1.0.0
+Text Domain:	centreforge-child
 */
 
 /*************************************
@@ -39,10 +42,6 @@ textarea { }
 
 img { border: none; }
 
-.post-edit-link { width: 100%; display: inline-block; *display: inline; zoom: 1; }
-
-.bootstrap-strip { width: auto; }
-
 .read-more {  }
 .align-right { float: right; }
 .align-left { float: left; }
@@ -60,8 +59,7 @@ Container
 Header
 *************************************/
 
-#header { display: inline-block; width: 100%; background: #fff; padding-bottom: 10px; }
-#header .container { background: #fff; }
+#header { }
 
 #social { display: inline-block; float: right; width: 350px; margin-top: 15px; }
 #social ul { float: right; }
@@ -73,18 +71,12 @@ Banner
 
 #banner { width: 100%; background: #eee; position: relative; }
 
-#image-slider { display: inline-block; width: 100%; position: relative; z-index: 10; background-color: #eee; }
-#banner-image { width: 100%; }
-#banner-image img { width: 100%; height: auto; }
-
 .blog-banner {  }
 .blog-banner h2 { width: 100%; text-align: center; padding: 15px 0; margin: 0; }
 
 /*************************************
 Page
 *************************************/
-#main { width: 100%; margin-top: 0px; padding-top: 10px; padding-bottom: 10px; display: inline-block; background: #fff; }
-#main .container { background: #fff; }
 
 #primary { }
 .page-content {  }
@@ -93,7 +85,7 @@ Page
 Blog
 *************************************/
 
-.post { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #ccc; }
+.post { }
 .blog-content { }
 .blog-content a { }
 .blog-content a:hover { }
@@ -150,14 +142,6 @@ Widgets
 	.searchform-wrap {  }
 	#s { margin: 0; }
 	#searchsubmt { }
-	
-/*************************************
-GForms
-*************************************/
-
-.gform_wrapper .right_label input.large, .gform_wrapper .right_label select.large, .gform_wrapper .left_label input.large, .gform_wrapper .left_label select.large, .gform_wrapper textarea.textarea { 
-	padding: 3px 5px 3px 5px;
-}
 
 /*************************************
 Footer
@@ -165,9 +149,4 @@ Footer
 
 #footer { background: #ccc; padding-top: 10px; padding-bottom: 10px; }
 #footer p { margin: 0; }
-
-@media screen and (max-width: 768px) {
-	.bootstrap-strip { margin-left: -20px; margin-right: -20px; padding-left: 20px; padding-right: 20px; }
-	#primary_menu { float: left; }
-}
 

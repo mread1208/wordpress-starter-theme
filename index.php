@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<section id="banner" class="bootstrap-strip">
+	<section id="banner">
 		<div class="container">
 			<div id="banner-image" class="blog-banner">
 				<h2>Blog</h2>
