@@ -5,7 +5,7 @@
 				<?php if(has_post_thumbnail()) { 
 					the_post_thumbnail('large');
 				} else {
-					echo '<img src="'.get_bloginfo('template_url').'/images/page-banner-default.jpg" alt="'.get_the_title().' Banner Image" />';	
+					echo '<img src="'.get_bloginfo('template_url').'/img/page-banner-default.jpg" alt="'.get_the_title().' Banner Image" />';	
 				} ?>
 			</div><?php // #banner-image ?>
 		</div><?php // .container ?>

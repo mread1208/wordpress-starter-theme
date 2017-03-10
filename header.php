@@ -25,7 +25,7 @@
 			<div class="row">
 				<div id="logo" class="col-md-5">
 					<a href="<?php echo home_url(); ?>">
-						<img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
+						<img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
 					</a>
 				</div>
 				<div class="col-md-7">
