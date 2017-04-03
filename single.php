@@ -1,23 +1,19 @@
 <?php get_header(); ?>
-	<section id="banner">
-		<div class="container">
-			<div id="banner-image" class="blog-banner">
-				<h2>Blog</h2>
-			</div><?php // #banner-image ?>
-		</div><?php // .container ?>
-	</section><?php // #banner ?>
+	<?php get_template_part('content', 'banner'); ?>
 	<section id="main">	
 		<div class="container">
 			<div class="row">
 				<div id="primary" class="col-md-8">
 					<?php while (have_posts()) : the_post(); ?>
 						<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-							<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
-							<div class="blog-entry">
-								<?php the_content(); ?>
-								<p><?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?></p>
-								<?php the_tags( 'Tags: ', ', ', ''); ?>
-							</div><?php //blog-entry ?>
+							<h2><?php the_title(); ?></h2>
+							<?php the_content(); ?>
+							
+							<div class="postmetadata">
+								<?php the_tags('Tags: ', ', ', '<br />'); ?>
+								Posted in <?php the_category(', ') ?> | 
+								<?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?>
+							</div>
 							<?php edit_post_link('Edit this entry.', '<p>', '</p>'); ?>
 							<?php comments_template(); ?>
 						</div><?php // .post ?>

@@ -2,6 +2,6 @@
 Michael Read's jQuery Functions File
 *****************************************/
 
-$(function(){
+jQuery(function(){
 	
 });

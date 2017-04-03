@@ -15,12 +15,11 @@ module.exports = function(grunt) {
 		},
 		uglify: {
 			options: {
-				banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+				banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+				compress: true
 			},
-			my_target: {
-				files: {
-					'functions.min.js': ['js/functions.js']
-				}
+			files: {
+				'js/functions.min.js': ['js/functions.js']
 			}
 		},
 		watch: {

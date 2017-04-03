@@ -23,7 +23,7 @@
 	<header id="header">
 		<div class="container">
 			<div class="row">
-				<div id="logo" class="col-md-5">
+				<div class="col-md-5">
 					<a href="<?php echo home_url(); ?>">
 						<img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
 					</a>

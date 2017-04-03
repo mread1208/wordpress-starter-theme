@@ -1,11 +1,9 @@
 /*   
 Theme Name: MRead Starter Theme
-Description: Blank starter theme based off the blank wordpress theme by Chris Coyier
+Description: Blank starter theme
 Author: Michael Read
 Author URI: http://www.michaelcread.com
-Template:		centreforge
 Version:		1.0.0
-Text Domain:	centreforge-child
 */
 
 /*************************************
@@ -14,46 +12,15 @@ Defaults
 
 * { margin: 0; padding: 0; vertical-align: top; }
 
-body { font-size: 100%; font-family: Helvetica, Arial, sans-serif; color: #2d2d2c; background-color: #fff; }
+body {  }
 
 ::-moz-selection { background: #006388; color: #fff; text-shadow: none; }
 ::selection { background: #006388; color: #fff; text-shadow: none; }
 
-.screen-reader-text { position: absolute; left: -9999px; top: -9999px; }
-.clear { clear: both; }
-.group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
-* html .group, *:first-child+html .group { zoom: 1; } /* First selector = IE6, Second Selector = IE 7 */
-
-h1, h2, h3 { font-weight: normal; margin: 0 0 10px 0; }
-h1 { font-size: 2.5em; /* 40 / 16 */ }
-h2 { font-size: 1.875em; /* 30 / 16 */ }
-h3 { font-size: 1.375em; /* 22 / 16 */ }
-h4 { font-size: 1em; /* 16 / 16 */ }
-p { margin: 0 0 10px 0; font-size: 0.875em; /* 14 / 16 */ line-height: 24px; }
-a { color: #1d96dc; text-decoration: none; }
 a:hover { text-decoration: underline; } 
 
-ul, ol { margin: 0 0 10px 0; display: inline-block; *display: inline; zoom: 1; }
-
-div { display: block; }
-form { }
-input[type=text] { }
-textarea { }
-
-img { border: none; }
-
-.read-more {  }
 .align-right { float: right; }
 .align-left { float: left; }
-
-.navigation { width: auto; }
-.navigation ul { list-style: none; display: block; margin: 0; }
-.navigation ul li { display: inline-block; }
-.navigation ul li a { padding: 5px 15px 5px 15px; display: block; }
-
-/*************************************
-Container
-*************************************/
 
 /*************************************
 Header
@@ -61,18 +28,11 @@ Header
 
 #header { }
 
-#social { display: inline-block; float: right; width: 350px; margin-top: 15px; }
-#social ul { float: right; }
-#social ul li a { padding: 0; margin: 0 5px 0 5px; }
-
 /*************************************
 Banner
 *************************************/
 
-#banner { width: 100%; background: #eee; position: relative; }
-
-.blog-banner {  }
-.blog-banner h2 { width: 100%; text-align: center; padding: 15px 0; margin: 0; }
+#banner { }
 
 /*************************************
 Page
@@ -85,19 +45,6 @@ Page
 Blog
 *************************************/
 
-.post { }
-.blog-content { }
-.blog-content a { }
-.blog-content a:hover { }
-
-.navgation { }
-.next-posts { }
-.prev-posts { }
-
-.pagination { clear:both; padding: 0; position:relative; font-size:11px; line-height:13px; float: left; margin-bottom: 10px; }
-.pagination span, .pagination a { display:block; float:left; margin: 2px 2px 2px 0; padding:6px 9px 5px 9px; text-decoration:none; width:auto; color: #626262; border: 1px solid #bfbfbf; }
-.pagination a:hover{ color:#fff; background: #9cb12e; }
-.pagination .current { padding:6px 9px 5px 9px; background: #9cb12e; color:#fff; }
 
 /*************************************
 Comments
@@ -138,15 +85,10 @@ Widgets
 .widget ul li {  }
 .widget ul li a {  }
  
-#searchform { }
-	.searchform-wrap {  }
-	#s { margin: 0; }
-	#searchsubmt { }
 
 /*************************************
 Footer
 *************************************/
 
-#footer { background: #ccc; padding-top: 10px; padding-bottom: 10px; }
-#footer p { margin: 0; }
+#footer {  }
 

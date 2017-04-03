@@ -10,7 +10,12 @@
 	<?php if ( have_comments() ) : ?>
 		<h2><?php comments_number('No Responses', 'Comment', '% Comments' );?></h2>
 		<ul class="commentlist">
-			<?php wp_list_comments('type=comment&callback=format_comment'); ?>
+			<?php wp_list_comments( array(
+			    'style'       => 'li',
+			    'short_ping'  => true,
+			    'avatar_size' => 42,
+			    'walker' => new WP_Bootstrap_Comments_Walker(),
+			) ); ?>
 		</ul>
 	 <?php else : // this is displayed if there are no comments so far ?>
 		<?php if ( comments_open() ) : ?>

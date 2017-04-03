@@ -1,11 +1,5 @@
 <?php get_header(); ?>
-	<section id="banner">
-		<div class="container">
-			<div id="banner-image" class="blog-banner">
-				<h2>Error 404</h2>
-			</div><?php // #banner-image ?>
-		</div><?php // .container ?>
-	</section><?php // #banner ?>
+	<?php get_template_part('content', 'banner'); ?>
 	<section id="main">	
 		<div class="container">
 			<div class="row">
