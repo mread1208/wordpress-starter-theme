@@ -54,21 +54,15 @@ Comments
 
 .commentlist { list-style: none; }
 .commentlist li { background: #eee; border-top: 1px dotted #696969; padding: 10px 2% 10px 2%; margin-top: 10px; }
-.commentlist li > ul { list-style: none; margin: 10px 0 0 3%; width: 97%; }
-.commentlist li > ul li { background: #efefef; width: 96%; }
+.commentlist li > ul { list-style: none; margin: 15px 0 0 60px; }
+.commentlist li > ul > li { background: #efefef; padding-left: 0; }
 .commentlist li > ul li > ul li { width: 100%; padding-left: 0; padding-bottom: 0; }
 
-.comment-thumb {  }
-.comment-thumb img { max-width: 100%; height: auto; *width: 100%; }
+.comment-wrapper { display: flex; flex-wrap: nowrap; }
+.comment-avatar { flex: 0 0 120px; margin-right: 15px; }
+.comment-body { flex: 1 1 auto; }
 
-.comment-body { }
-.comment-header { width: 94%; padding: 0 0 10px 0; }
-.comment-header h4 { float: left; width: auto; margin-right: 3%; line-height: 20px; }
-.comment-header h4 a { color: #000; }
-.comment-permalink { float: left; width: auto; font-size: 0.75em; line-height: 20px; }
-
-.reply { float: right; }
-.reply a { font-size: 0.75em; }
+.reply { text-align: right; }
 
 /*************************************
 Sidebar

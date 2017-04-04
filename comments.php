@@ -10,12 +10,12 @@
 	<?php if ( have_comments() ) : ?>
 		<h2><?php comments_number('No Responses', 'Comment', '% Comments' );?></h2>
 		<ul class="commentlist">
-			<?php wp_list_comments( array(
+			<?php wp_list_comments(array(
 			    'style'       => 'li',
 			    'short_ping'  => true,
-			    'avatar_size' => 42,
-			    'walker' => new WP_Bootstrap_Comments_Walker(),
-			) ); ?>
+			    'avatar_size' => 120,
+			    'callback' 	  => 'format_comment'
+			)); ?>
 		</ul>
 	 <?php else : // this is displayed if there are no comments so far ?>
 		<?php if ( comments_open() ) : ?>
@@ -37,28 +37,24 @@
 				<?php if ( is_user_logged_in() ) : ?>
 					<p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
 				<?php else : ?>
-					<div>
-						<input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
+					<div class="form-group">
+						<input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" <?php if ($req) echo "aria-required='true'"; ?> />
 						<label for="author">Name <?php if ($req) echo "(required)"; ?></label>
 					</div>
-					<div>
-						<input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-						<label for="email">Mail (will not be published) <?php if ($req) echo "(required)"; ?></label>
+					<div class="form-group">
+						<input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" <?php if ($req) echo "aria-required='true'"; ?> />
+						<label for="email">Email (will not be published) <?php if ($req) echo "(required)"; ?></label>
 					</div>
-					<div>
-						<input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
+					<div class="form-group">
+						<input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" />
 						<label for="url">Website</label>
 					</div>
 				<?php endif; ?>
-				<!--<p>You can use these tags: <code><?php echo allowed_tags(); ?></code></p>-->
-				<div>
-					<textarea name="comment" id="comment" class="ext8" rows="10" tabindex="4"></textarea>
+				<div class="form-group">
+					<textarea name="comment" id="comment" class="form-control" rows="6" ></textarea>
 				</div>
-				<div class="clear"></div>
-				<div>
-					<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
-					<?php comment_id_fields(); ?>
-				</div>
+				<input name="submit" type="submit" class="btn btn-primary" value="Submit Comment" />
+				<?php comment_id_fields(); ?>
 				<?php do_action('comment_form', $post->ID); ?>
 			</form>
 			<?php endif; // If registration required and not logged in ?>
