@@ -20,25 +20,25 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header id="header">
+	<header class="header">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-5">
+			<div class="header--header-wrapper">
+				<div class="header--header-wrapper--logo">
 					<a href="<?php echo home_url(); ?>">
 						<img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
 					</a>
 				</div>
-				<div class="col-md-7">
+				<div class="header--header-wrapper--menu">
 					<?php wp_nav_menu( array(
-		                'menu'              => 'primary_menu',
-		                'theme_location'    => 'primary_menu',
-		                'depth'             => 2,
-		                'container'         => 'div',
+						'menu'              => 'primary_menu',
+						'theme_location'    => 'primary_menu',
+						'depth'             => 2,
+						'container'         => 'nav',
 						'container_id'      => 'primary_menu'
 						)
-		            ); ?>
+					); ?>
 				</div>
-			</div><?php //.row ?>
+			</div>
 		</div><?php //.container ?>
 	</header>
 

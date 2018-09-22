@@ -5,16 +5,15 @@ Author: Michael Read
 Author URI: http://www.michaelcread.com
 Version:		1.0.0
 */
-
-// @import ".bolierplate/reboot";
-
-body {
-    background: #000;
+@import "_.settings/variables";
+@import "_.settings/mixins";
+@import "_.bolierplate/reboot";
+img {
+    max-width: 100%;
 }
 
-a:hover {
-    text-decoration: underline;
-}
+@import "_partials/text.scss";
+@import "_partials/header.scss";
 
 .align-right {
     float: right;

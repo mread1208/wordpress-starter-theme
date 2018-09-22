@@ -1,0 +1,32 @@
+.header {
+}
+
+.header--header-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @include bp($small) {
+        flex-wrap: nowrap;
+    }
+    .header--header-wrapper--logo {
+        flex: 0 0 100%;
+
+        @include bp($small) {
+            flex: 0 0 300px;
+        }
+
+        a {
+            display: block;
+        }
+    }
+    .header--header-wrapper--menu {
+        flex: 0 0 100%;
+        @include bp($small) {
+            flex: 1 1 100%;
+        }
+    }
+}
+
+.primary-menu {
+}
