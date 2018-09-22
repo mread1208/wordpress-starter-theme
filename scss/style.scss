@@ -6,28 +6,10 @@ Author URI: http://www.michaelcread.com
 Version:		1.0.0
 */
 
-/*************************************
-Defaults
-*************************************/
-
-* {
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
-}
+// @import ".bolierplate/reboot";
 
 body {
-}
-
-::-moz-selection {
-    background: #006388;
-    color: #fff;
-    text-shadow: none;
-}
-::selection {
-    background: #006388;
-    color: #fff;
-    text-shadow: none;
+    background: #000;
 }
 
 a:hover {

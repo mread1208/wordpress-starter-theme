@@ -34,11 +34,8 @@
 		                'theme_location'    => 'primary_menu',
 		                'depth'             => 2,
 		                'container'         => 'div',
-		                'container_class'   => 'collapse navbar-collapse',
-						'container_id'      => 'primary_menu',
-		                'menu_class'        => 'nav navbar-nav',
-		                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-		                'walker'            => new wp_bootstrap_navwalker())
+						'container_id'      => 'primary_menu'
+						)
 		            ); ?>
 				</div>
 			</div><?php //.row ?>

@@ -1,21 +1,15 @@
 <?php
 	include_once('inc/custom-posts.php');
-	include_once('inc/wp_bootstrap_navwalker.php');
 	// Add RSS links to <head> section
 	add_theme_support( 'automatic-feed-links');
 	
 	add_action( 'wp_enqueue_scripts', 'mread_load_scripts' );
 	function mread_load_scripts() {
 		if ( !is_admin() ) {
-			
-			wp_register_script('bsjs', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), '', true);
-			wp_register_script('jsfunctions', get_stylesheet_directory_uri().'/js/functions.min.js', array('jquery'), '', true);
-			wp_enqueue_script('bsjs');
+			wp_register_script('jsfunctions', get_stylesheet_directory_uri().'/js/functions.min.js', '', '', true);
 			wp_enqueue_script('jsfunctions');
 			
-			wp_register_style('bscss', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',false,'','all');
-			wp_register_style('stylecss', get_stylesheet_directory_uri().'/style.css',false,'','all');
-			wp_enqueue_style('bscss');
+			wp_register_style('stylecss', get_stylesheet_directory_uri().'/style.min.css',false,'','all');
 			wp_enqueue_style('stylecss');
 		}
 	}

@@ -8,21 +8,23 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 files: {
-                    "style.css": "scss/*.scss"
+                    "style.css": "scss/style.scss"
                 }
             }
         },
         postcss: {
-            options: {
-                map: true,
+            defaults: {
+                options: {
+                    map: true,
 
-                processors: [
-                    require("autoprefixer")({ browsers: "cover 99.5% in US" }),
-                    require("cssnano")()
-                ]
-            },
-            dist: {
-                src: "style.css"
+                    processors: [
+                        require("autoprefixer")({ browsers: "cover 99.5% in US" }),
+                        require("cssnano")()
+                    ]
+                },
+                src: "style.css",
+                dest: "style.min.css"
+                // src: "style.css",
             }
         },
         uglify: {
@@ -37,7 +39,7 @@ module.exports = function(grunt) {
         watch: {
             css: {
                 files: ["scss/*.scss", "js/*.js"],
-                tasks: ["sass", "postcss", "uglify"]
+                tasks: ["sass", "uglify"]
             }
         }
     });
