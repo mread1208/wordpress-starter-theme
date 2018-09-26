@@ -9,19 +9,17 @@
 		</section>
 		<section id="main">	
 			<div class="container">
-				<div class="row">
-					<div id="primary" class="col-md-8">
-						<?php while (have_posts()) : the_post(); ?>
-							<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-								<h2><?php the_title(); ?></h2>
-								<div class="entry">
-									<?php the_excerpt(); ?>
-								</div>
+				<div class="primary">
+					<?php while (have_posts()) : the_post(); ?>
+						<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
+							<h2><?php the_title(); ?></h2>
+							<div class="entry">
+								<?php the_excerpt(); ?>
 							</div>
-						<?php endwhile; ?>
-					</div>
-					<?php get_sidebar(); ?>
+						</div>
+					<?php endwhile; ?>
 				</div>
+				<?php get_sidebar(); ?>
 			</div>
 		</section>
 	<?php else : ?>

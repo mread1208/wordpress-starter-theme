@@ -1,4 +1,4 @@
-<div id="sidebar" class="col-md-4">
+<div class="sidebar">
 	<?php if(is_home() || is_archive() || is_search() || is_single()) { ?>
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Blog Widgets')) : else : ?>
     

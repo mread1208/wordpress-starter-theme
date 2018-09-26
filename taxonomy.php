@@ -8,8 +8,8 @@
 	</section>
 	<section id="main">	
 		<div class="container">
-			<div class="row">
-				<div id="primary" class="col-md-8">
+			<div class="content-container">
+				<div class="primary">
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 						<div class="blog-entry">
 							<?php the_content(); ?>
@@ -20,7 +20,7 @@
 					<?php endif; ?>
 				</div>
 				<?php get_sidebar(); ?>
-			</div><?php // .row ?>
+			</div>
 		</div><?php //.container ?>
 	</section>
 <?php get_footer(); ?>

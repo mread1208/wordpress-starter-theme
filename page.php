@@ -12,8 +12,8 @@
 	</section><?php // #banner ?>
 	<section id="main">	
 		<div class="container">
-			<div class="row">
-				<div id="primary" class="col-md-8">
+			<div class="content-container">
+				<div class="primary">
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 						<div id="post-<?php the_ID(); ?>" class="page-content">
 							<h2><?php the_title(); ?></h2>
@@ -23,7 +23,7 @@
 					<?php endwhile; endif; ?>
 				</div><?php // #primary ?>
 				<?php get_sidebar(); ?>
-			</div><?php // .row ?>
+			</div>
 		</div><?php // .container ?>
 	</section><?php // #banner ?>
 <?php get_footer(); ?>
