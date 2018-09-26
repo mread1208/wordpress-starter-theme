@@ -9,7 +9,9 @@
 			wp_register_script('jsfunctions', get_stylesheet_directory_uri().'/js/functions.min.js', '', '', true);
 			wp_enqueue_script('jsfunctions');
 			
-			wp_register_style('stylecss', get_stylesheet_directory_uri().'/style.min.css',false,'','all');
+			wp_register_style('facss', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css', false, '', 'all');
+			wp_register_style('stylecss', get_stylesheet_directory_uri().'/style.min.css', false, '', 'all');
+			wp_enqueue_style('facss');
 			wp_enqueue_style('stylecss');
 		}
 	}

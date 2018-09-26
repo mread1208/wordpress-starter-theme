@@ -4,13 +4,26 @@
 .header--header-wrapper {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     width: 100%;
 
     @include bp($small) {
         flex-wrap: nowrap;
     }
+
+    .header--header-wrapper--mobile-nav-trigger {
+        display: block;
+        flex: 0 0 10%;
+        font-size: 1.75rem; //28px
+
+        @include bp($small) {
+            display: none;
+        }
+    }
+
     .header--header-wrapper--logo {
-        flex: 0 0 100%;
+        flex: 1 1 88%;
+        max-width: 90%;
 
         @include bp($small) {
             flex: 0 0 300px;
@@ -22,6 +35,10 @@
     }
     .header--header-wrapper--menu {
         flex: 0 0 100%;
+        overflow: hidden;
+        transition: height 0.3s ease-out;
+        height: auto;
+
         @include bp($small) {
             flex: 1 1 100%;
         }
@@ -29,4 +46,29 @@
 }
 
 .primary-menu {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        flex: 0 0 100%;
+
+        @include bp($small) {
+            flex: 0 0 auto;
+        }
+
+        > a {
+            display: block;
+            padding: 1rem 0;
+
+            @include bp($small) {
+                padding: 1rem 1.5625rem; //25px
+            }
+        }
+    }
 }

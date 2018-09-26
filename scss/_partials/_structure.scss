@@ -1,0 +1,9 @@
+.container {
+    margin: auto;
+    max-width: 1170px;
+    padding: 0 1.25rem; //20px
+
+    @include bp($medium) {
+        padding: 0 2.5rem; //40px
+    }
+}

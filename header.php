@@ -23,6 +23,9 @@
 	<header class="header">
 		<div class="container">
 			<div class="header--header-wrapper">
+				<div class="header--header-wrapper--mobile-nav-trigger">
+					<a class="js-toggle-menu" href="#"><i class="fa fa-bars"></i></a>
+				</div>
 				<div class="header--header-wrapper--logo">
 					<a href="<?php echo home_url(); ?>">
 						<img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
@@ -34,7 +37,8 @@
 						'theme_location'    => 'primary_menu',
 						'depth'             => 2,
 						'container'         => 'nav',
-						'container_id'      => 'primary_menu'
+						'container_id'      => 'primary-menu',
+						'container_class'      => 'primary-menu'
 						)
 					); ?>
 				</div>

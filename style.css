@@ -295,6 +295,14 @@ template {
 img {
   max-width: 100%; }
 
+.container {
+  margin: auto;
+  max-width: 1170px;
+  padding: 0 1.25rem; }
+  @media (min-width: 900px) {
+    .container {
+      padding: 0 2.5rem; } }
+
 a {
   color: #164f86; }
 
@@ -310,22 +318,53 @@ h3 {
 .header--header-wrapper {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   width: 100%; }
   @media (min-width: 600px) {
     .header--header-wrapper {
       flex-wrap: nowrap; } }
+  .header--header-wrapper .header--header-wrapper--mobile-nav-trigger {
+    display: block;
+    flex: 0 0 10%;
+    font-size: 1.75rem; }
+    @media (min-width: 600px) {
+      .header--header-wrapper .header--header-wrapper--mobile-nav-trigger {
+        display: none; } }
   .header--header-wrapper .header--header-wrapper--logo {
-    flex: 0 0 100%; }
+    flex: 1 1 88%;
+    max-width: 90%; }
     @media (min-width: 600px) {
       .header--header-wrapper .header--header-wrapper--logo {
         flex: 0 0 300px; } }
     .header--header-wrapper .header--header-wrapper--logo a {
       display: block; }
   .header--header-wrapper .header--header-wrapper--menu {
-    flex: 0 0 100%; }
+    flex: 0 0 100%;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    height: auto; }
     @media (min-width: 600px) {
       .header--header-wrapper .header--header-wrapper--menu {
         flex: 1 1 100%; } }
+
+.primary-menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+.primary-menu li {
+  flex: 0 0 100%; }
+  @media (min-width: 600px) {
+    .primary-menu li {
+      flex: 0 0 auto; } }
+  .primary-menu li > a {
+    display: block;
+    padding: 1rem 0; }
+    @media (min-width: 600px) {
+      .primary-menu li > a {
+        padding: 1rem 1.5625rem; } }
 
 .align-right {
   float: right; }

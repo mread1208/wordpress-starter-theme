@@ -30,20 +30,23 @@ module.exports = function(grunt) {
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-                compress: true
+                compress: true,
+                sourceMap: true
             },
-            files: {
-                "js/functions.min.js": ["js/functions.js"]
+            mrstarter: {
+                files: {
+                    "js/functions.min.js": ["js/functions.js"]
+                }
             }
         },
         watch: {
             css: {
-                files: ["scss/**/*.scss", "js/*.js"],
-                tasks: ["sass", "postcss", "uglify"]
+                files: ["scss/**/*.scss", "js/functions.js"],
+                tasks: ["sass", "postcss", "uglify:mrstarter"]
             }
         }
     });
 
     // Default task(s).
-    grunt.registerTask("default", ["sass", "postcss", "uglify", "watch"]);
+    grunt.registerTask("default", ["sass", "postcss", "uglify:mrstarter", "watch"]);
 };
