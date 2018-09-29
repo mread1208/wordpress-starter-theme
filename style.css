@@ -350,6 +350,18 @@ h2 {
 h3 {
   font-size: 1.75rem; }
 
+input[type="text"] {
+  padding: 5px; }
+
+input[type="submit"],
+button {
+  padding: 6px 10px;
+  border-radius: 5px;
+  background: #efefef; }
+  input[type="submit"]:hover,
+  button:hover {
+    background: #dddddd; }
+
 .header--header-wrapper {
   display: flex;
   flex-wrap: wrap;
