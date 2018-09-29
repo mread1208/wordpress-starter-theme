@@ -5,8 +5,6 @@ node_modules/
 **/.DS_Store
 **/._.DS_Store
 
-# Ignore docs files
-.sass-cache
-.sass-cache/*
+
 
 *.map
