@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                     map: true,
 
                     processors: [
-                        require("autoprefixer")({ browsers: "cover 99.5% in US" }),
+                        require("autoprefixer"),
                         require("cssnano")()
                     ]
                 },
