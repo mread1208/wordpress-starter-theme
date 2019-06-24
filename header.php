@@ -20,28 +20,43 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<p>Facebook: <?php echo get_theme_mod( 'social_facebook'); ?></p>
+<p>Twitter: <?php echo get_theme_mod( 'social_twitter'); ?></p>
+
+
 	<header class="header">
 		<div class="container">
 			<div class="header--header-wrapper">
-				<div class="header--header-wrapper--mobile-nav-trigger">
+				<?php /* <div class="header--header-wrapper--mobile-nav-trigger">
 					<a class="js-toggle-menu" href="#"><i class="fa fa-bars"></i></a>
-				</div>
+				</div> */ ?>
 				<div class="header--header-wrapper--logo">
 					<a href="<?php echo home_url(); ?>">
 						<img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
 					</a>
 				</div>
-				<div class="header--header-wrapper--menu">
-					<?php wp_nav_menu( array(
-						'menu'              => 'primary_menu',
-						'theme_location'    => 'primary_menu',
-						'depth'             => 2,
-						'container'         => 'nav',
-						'container_id'      => 'primary-menu',
-						'container_class'      => 'primary-menu'
-						)
-					); ?>
+				<div class="header--header-wrapper--utility">
+				<?php if(showSocialNav()) { ?>
+					<div class="header--header-wrapper--utility--social-nav">
+					asdf
+					</div>
+				<?php } ?>
+					<div class="header--header-wrapper--utility--searchform">
+						<?= get_search_form(); ?>
+					</div>
 				</div>
+			</div>
+			<div class="header--header--menu">
+				<?php wp_nav_menu( array(
+					'menu'              => 'primary_menu',
+					'theme_location'    => 'primary_menu',
+					'depth'             => 2,
+					'container'         => 'nav',
+					'container_id'      => 'primary-menu',
+					'container_class'      => 'primary-menu'
+					)
+				); ?>
 			</div>
 		</div><?php //.container ?>
 	</header>

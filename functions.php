@@ -45,7 +45,6 @@
     	));
    
     }
-
     
     if ( function_exists( 'add_theme_support' ) ) { 
 		add_theme_support( 'post-thumbnails' );
@@ -62,7 +61,41 @@
 		register_nav_menus($locations);
 	}
 	add_action( 'init', 'register_my_menus' );
-	
+
+	function mrtheme_customize_register( $wp_customize ) {
+		$wp_customize->add_section( 'mrtheme_social' , array(
+			'title'      => __( 'Social', 'mrtheme' ),
+			'priority'   => 30,
+		));
+		// Add setting
+		$wp_customize->add_setting( 'mrtheme_social', array(
+			'default'           => __( '', 'mrtheme' ),
+			'sanitize_callback' => 'sanitize_text'
+		) );
+		// Add control
+		$wp_customize->add_control( 'mrtheme_social_facebook', array(
+			'type' => 'text',
+			'section' => 'mrtheme_social',
+			"setting" => "mrtheme_social",
+			'label' => __( 'Facebook' ),
+			'description' => __( 'Facebook URL.' ),
+		  ) );
+		// Sanitize text
+		function sanitize_text( $text ) {
+			return sanitize_text_field( $text );
+		}
+	 }
+	 add_action( 'customize_register', 'mrtheme_customize_register' );
+
+	function showSocialNav() {
+		$facebook = get_theme_mod( 'social_facebook', "");
+		$twitter = get_theme_mod( 'social_twitter', "");
+		if($facebook == "" && $twitter == "") {
+			return $facebook;
+		}
+
+		return true;
+	}
 	
 	function format_comment($comment, $args, $depth) {
     	$GLOBALS['comment'] = $comment; ?>

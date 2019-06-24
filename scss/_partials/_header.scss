@@ -33,15 +33,32 @@
             display: block;
         }
     }
-    .header--header-wrapper--menu {
-        flex: 0 0 100%;
-        overflow: hidden;
-        transition: height 0.3s ease-out;
-        height: auto;
 
-        @include bp($small) {
-            flex: 1 1 100%;
+    .header--header-wrapper--utility {
+        display: flex;
+        justify-content: flex-end;
+        flex: 1 1 100%;
+
+        .header--header-wrapper--utility--item {
+            .header--header-wrapper--utility--social-nav {
+    
+            }
+    
+            .header--header-wrapper--utility--searchform {
+                
+            }
         }
+
+    }
+}
+.header--header--menu {
+    flex: 0 0 100%;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    height: auto;
+
+    @include bp($small) {
+        flex: 1 1 100%;
     }
 }
 

@@ -385,14 +385,19 @@ button {
         flex: 0 0 300px; } }
     .header--header-wrapper .header--header-wrapper--logo a {
       display: block; }
-  .header--header-wrapper .header--header-wrapper--menu {
-    flex: 0 0 100%;
-    overflow: hidden;
-    transition: height 0.3s ease-out;
-    height: auto; }
-    @media (min-width: 600px) {
-      .header--header-wrapper .header--header-wrapper--menu {
-        flex: 1 1 100%; } }
+  .header--header-wrapper .header--header-wrapper--utility {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1 1 100%; }
+
+.header--header--menu {
+  flex: 0 0 100%;
+  overflow: hidden;
+  transition: height 0.3s ease-out;
+  height: auto; }
+  @media (min-width: 600px) {
+    .header--header--menu {
+      flex: 1 1 100%; } }
 
 .primary-menu ul {
   display: flex;
