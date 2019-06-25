@@ -149,9 +149,30 @@
                     text-decoration: none;
                 }
             }
+            
+            .sub-menu {
+                margin-left: 20px;
+                display: none;
 
-            & .sub-menu {
-                padding-left: 20px;
+                &.open {
+                    display: block;
+                }
+            }
+
+            &.menu-item-has-children {
+                & > a {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                & > a:after {
+                    font-size: 22px;
+                    content: "+";
+                }
+                & > a.open-toggle:after {
+                    content: "-";
+                }
             }
         }
     }

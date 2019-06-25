@@ -464,7 +464,19 @@ button {
         .mobile-menu .primary-menu-mobile ul li > a:hover {
           text-decoration: none; }
       .mobile-menu .primary-menu-mobile ul li .sub-menu {
-        padding-left: 20px; }
+        margin-left: 20px;
+        display: none; }
+        .mobile-menu .primary-menu-mobile ul li .sub-menu.open {
+          display: block; }
+      .mobile-menu .primary-menu-mobile ul li.menu-item-has-children > a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+      .mobile-menu .primary-menu-mobile ul li.menu-item-has-children > a:after {
+        font-size: 22px;
+        content: "+"; }
+      .mobile-menu .primary-menu-mobile ul li.menu-item-has-children > a.open-toggle:after {
+        content: "-"; }
 
 .align-right {
   float: right; }
