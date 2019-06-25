@@ -20,17 +20,12 @@
 </head>
 
 <body <?php body_class(); ?>>
-
-<p>Facebook: <?php echo get_theme_mod( 'social_facebook'); ?></p>
-<p>Twitter: <?php echo get_theme_mod( 'social_twitter'); ?></p>
-
-
 	<header class="header">
 		<div class="container">
 			<div class="header--header-wrapper">
-				<?php /* <div class="header--header-wrapper--mobile-nav-trigger">
-					<a class="js-toggle-menu" href="#"><i class="fa fa-bars"></i></a>
-				</div> */ ?>
+				<div class="header--header-wrapper--mobile-nav-trigger">
+					<a class="js-toggle-mobile-menu" href="#"><i class="fa fa-bars"></i></a>
+				</div>
 				<div class="header--header-wrapper--logo">
 					<a href="<?php echo home_url(); ?>">
 						<img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
@@ -60,4 +55,21 @@
 			</div>
 		</div><?php //.container ?>
 	</header>
+	<div class="mobile-menu js-mobile-menu">
+		<div class="mobile-menu--close">
+			<a href="#" class="mobile-menu--close-btn js-toggle-mobile-menu"><i class="fa fa-times-circle"></i></a>
+			Menu
+		</div>
+		<?php wp_nav_menu( array(
+			'menu'              => 'primary_menu',
+			'theme_location'    => 'primary_menu',
+			'depth'             => 2,
+			'container'         => 'nav',
+			'container_id'      => 'primary-menu-mobile',
+			'container_class'      => 'primary-menu-mobile',
+			'menu_id'			=> "menu-primary-menu-mobile",
+			'menu_class'			=> "menu-primary-menu-mobile"
+			)
+		); ?>
+	</div>
 
