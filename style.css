@@ -407,16 +407,17 @@ button {
   margin: 0;
   padding: 0; }
 .primary-menu li {
-  flex: 0 0 100%; }
-  @media (min-width: 600px) {
-    .primary-menu li {
-      flex: 0 0 auto; } }
+  flex: 0 0 auto; }
   .primary-menu li > a {
     display: block;
-    padding: 1rem 0; }
-    @media (min-width: 600px) {
-      .primary-menu li > a {
-        padding: 1rem 1.5625rem; } }
+    padding: 1rem 1.5625rem; }
+  .primary-menu li .sub-menu {
+    display: none;
+    position: absolute;
+    width: 200px;
+    background: #ffffff; }
+    .primary-menu li .sub-menu.open {
+      display: block; }
 
 .mobile-menu {
   position: fixed;
@@ -483,6 +484,14 @@ button {
 
 .align-left {
   float: left; }
+
+.mr-overlay {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.4); }
 
 /*************************************
 Header
