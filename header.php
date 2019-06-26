@@ -24,25 +24,67 @@
 		<div class="container">
 			<div class="header--header-wrapper">
 				<div class="header--header-wrapper--mobile-nav-trigger">
-					<a class="js-toggle-menu" href="#"><i class="fa fa-bars"></i></a>
+					<a class="js-toggle-mobile-menu" href="#"><i class="fa fa-bars"></i></a>
 				</div>
 				<div class="header--header-wrapper--logo">
 					<a href="<?php echo home_url(); ?>">
 						<img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
 					</a>
 				</div>
-				<div class="header--header-wrapper--menu">
-					<?php wp_nav_menu( array(
-						'menu'              => 'primary_menu',
-						'theme_location'    => 'primary_menu',
-						'depth'             => 2,
-						'container'         => 'nav',
-						'container_id'      => 'primary-menu',
-						'container_class'      => 'primary-menu'
-						)
-					); ?>
+				<div class="header--header-wrapper--utility">
+					<?php if(showSocialNav()) : ?>
+						<div class="header--header-wrapper--utility--social-nav">
+							<ul class="social-nav">
+								<?php if( get_theme_mod( 'mrtheme_social_facebook') != "" ): ?>
+									<li>
+										<a target="_blank" href="<?php echo get_theme_mod( 'mrtheme_social_facebook'); ?>">
+											<i class="fa fa-facebook"></i>
+										</a>
+									</li>
+								<?php endif; ?>
+								<?php if( get_theme_mod( 'mrtheme_social_twitter') != "" ): ?>
+									<li>
+										<a target="_blank" href="<?php echo get_theme_mod( 'mrtheme_social_twitter'); ?>">
+											<i class="fa fa-twitter"></i>
+										</a>
+									</li>
+								<?php endif; ?>
+							</ul>
+						</div>
+					<?php endif; ?>
+					<div class="header--header-wrapper--utility--searchform">
+						<?= get_search_form(); ?>
+					</div>
 				</div>
+			</div>
+			<div class="header--header--menu">
+				<?php wp_nav_menu( array(
+					'menu'              => 'primary_menu',
+					'theme_location'    => 'primary_menu',
+					'depth'             => 2,
+					'container'         => 'nav',
+					'container_id'      => 'primary-menu',
+					'container_class'      => 'primary-menu'
+					)
+				); ?>
 			</div>
 		</div><?php //.container ?>
 	</header>
+	<div class="mobile-menu js-mobile-menu">
+		<div class="mobile-menu--close">
+			<a href="#" class="mobile-menu--close-btn js-toggle-mobile-menu"><i class="fa fa-times-circle"></i></a>
+			Menu
+		</div>
+		<?php wp_nav_menu( array(
+			'menu'              => 'primary_menu',
+			'theme_location'    => 'primary_menu',
+			'depth'             => 2,
+			'container'         => 'nav',
+			'container_id'      => 'primary-menu-mobile',
+			'container_class'      => 'primary-menu-mobile',
+			'menu_id'			=> "menu-primary-menu-mobile",
+			'menu_class'			=> "menu-primary-menu-mobile"
+			)
+		); ?>
+	</div>
 

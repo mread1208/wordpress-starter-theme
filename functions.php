@@ -9,7 +9,7 @@
 			wp_register_script('jsfunctions', get_stylesheet_directory_uri().'/js/functions.min.js', '', '', true);
 			wp_enqueue_script('jsfunctions');
 			
-			wp_register_style('facss', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css', false, '', 'all');
+			wp_register_style('facss', 'https://use.fontawesome.com/releases/v5.9.0/css/all.css', false, '', 'all');
 			wp_register_style('stylecss', get_stylesheet_directory_uri().'/style.min.css', false, '', 'all');
 			wp_enqueue_style('facss');
 			wp_enqueue_style('stylecss');
@@ -45,7 +45,6 @@
     	));
    
     }
-
     
     if ( function_exists( 'add_theme_support' ) ) { 
 		add_theme_support( 'post-thumbnails' );
@@ -62,7 +61,67 @@
 		register_nav_menus($locations);
 	}
 	add_action( 'init', 'register_my_menus' );
-	
+
+	function mrtheme_customize_register( $wp_customize ) {
+		$wp_customize->add_section( 'mrtheme_social_media' , array(
+			'title'      => __( 'Social', 'mrtheme' ),
+			// 'panel'    => 'mrtheme_social',
+			'priority'   => 100,
+		));
+		// Add setting
+		$wp_customize->add_setting( 'mrtheme_social_facebook', array(
+			'default'           => __( '', 'mrtheme' ),
+			'sanitize_callback' => 'sanitize_text'
+	   ) );
+		// Add control
+		$wp_customize->add_control( new WP_Customize_Control(
+			$wp_customize,
+			'mrtheme_social_facebook',
+				array(
+					'label'    => __( 'Facebook', 'mrtheme' ),
+					'section'  => 'mrtheme_social_media',
+					'settings' => 'mrtheme_social_facebook',
+					'description' => __( 'Include the full URL (including https://)', 'mrtheme' ),
+					'type'     => 'text'
+				)
+			)
+		);
+		
+		// Add setting
+		$wp_customize->add_setting( 'mrtheme_social_twitter', array(
+			'default'           => __( '', 'mrtheme' ),
+			'sanitize_callback' => 'sanitize_text'
+	   ) );
+		// Add control
+		$wp_customize->add_control( new WP_Customize_Control(
+			$wp_customize,
+			'mrtheme_social_twitter',
+				array(
+					'label'    => __( 'Twitter', 'mrtheme' ),
+					'section'  => 'mrtheme_social_media',
+					'settings' => 'mrtheme_social_twitter',
+					'description' => __( 'Include the full URL (including https://)', 'mrtheme' ),
+					'type'     => 'text'
+				)
+			)
+		);
+
+		// Sanitize text
+		function sanitize_text( $text ) {
+			return sanitize_text_field( $text );
+		}
+	 }
+	 add_action( 'customize_register', 'mrtheme_customize_register' );
+
+	function showSocialNav() {
+		$facebook = get_theme_mod( 'mrtheme_social_facebook', "");
+		$twitter = get_theme_mod( 'mrtheme_social_twitter', "");
+		if($facebook == "" && $twitter == "") {
+			return false;
+		} else {
+			return true;
+		}
+	}
 	
 	function format_comment($comment, $args, $depth) {
     	$GLOBALS['comment'] = $comment; ?>

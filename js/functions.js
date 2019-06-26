@@ -1,54 +1,77 @@
-var menu = (function() {
-    var toggleMenuBtn = document.querySelector(".js-toggle-menu");
+var overlay = (function() {
+    var overlayElement = document.createElement("div");
+    overlayElement.classList.add("mr-overlay");
+    // overlayElement.addEventListener("click", toggleOverlay);
 
-    toggleMenuBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        var header = this.closest(".header--header-wrapper");
-        var toggleMenu = header.querySelector(".header--header-wrapper--menu");
-        var isCollapsed = toggleMenu.getAttribute("data-collapsed") || "false";
-
-        if (isCollapsed === "true") {
-            expandSection(toggleMenu);
+    function toggleOverlay() {
+        if (document.querySelector(".mr-overlay")) {
+            document.querySelector(".mr-overlay").remove();
+            // menu.toggleMenu(overlayElement);
         } else {
-            collapseSection(toggleMenu);
+            document.body.appendChild(overlayElement);
         }
-    });
-
-    function collapseSection(element) {
-        var sectionHeight = element.scrollHeight;
-
-        // temporarily disable all css transitions
-        var elementTransition = element.style.transition;
-        element.style.transition = "";
-
-        // on the next frame (as soon as the previous style change has taken effect),
-        // explicitly set the element's height to its current pixel height, so we
-        // aren't transitioning out of 'auto'
-        requestAnimationFrame(function() {
-            element.style.height = sectionHeight + "px";
-            element.style.transition = elementTransition;
-
-            // on the next frame (as soon as the previous style change has taken effect),
-            // have the element transition to height: 0
-            requestAnimationFrame(function() {
-                element.style.height = 0 + "px";
-            });
-        });
-
-        element.setAttribute("data-collapsed", "true");
     }
 
-    function expandSection(element) {
-        var sectionHeight = element.scrollHeight;
-        element.style.height = sectionHeight + "px";
+    return {
+        toggleOverlay: toggleOverlay
+    };
+})();
 
-        // when the next css transition finishes (which should be the one we just triggered)
-        element.addEventListener("transitionend", function(e) {
-            // remove this event listener so it only gets triggered once
-            element.removeEventListener("transitionend", arguments.callee);
-            element.style.height = null;
-        });
+var menu = (function() {
+    var toggleMobileMenuBtns = document.querySelectorAll(".js-toggle-mobile-menu");
+    var mobileMenu = document.querySelector(".js-mobile-menu");
 
-        element.setAttribute("data-collapsed", "false");
+    var primaryMenu = document.querySelector(".primary-menu");
+    var subMenuBtns = primaryMenu.querySelectorAll(".menu-item-has-children > a");
+
+    var primaryMenuMobile = document.querySelector(".primary-menu-mobile");
+    var mobileSubMenuBtns = primaryMenuMobile.querySelectorAll(".menu-item-has-children > a");
+
+    for (i = 0; i < toggleMobileMenuBtns.length; i++) {
+        toggleMobileMenuBtns[i].addEventListener("click", toggleMenu);
     }
+    for (j = 0; j < subMenuBtns.length; j++) {
+        subMenuBtns[j].addEventListener("click", toggleSubMenu);
+    }
+    for (k = 0; k < mobileSubMenuBtns.length; k++) {
+        mobileSubMenuBtns[k].addEventListener("click", toggleSubMenu);
+        // If sub page is active, open and show sub menu
+        if (
+            mobileSubMenuBtns[k].parentElement.classList.contains("current-menu-ancestor") ||
+            mobileSubMenuBtns[k].parentElement.classList.contains("current-menu-parent") ||
+            mobileSubMenuBtns[k].parentElement.classList.contains("current-menu-item")
+        ) {
+            var subMenu = mobileSubMenuBtns[k].parentElement.querySelector(".sub-menu");
+
+            mobileSubMenuBtns[k].classList.add("open-toggle");
+            subMenu.classList.add("open");
+            if (subMenu.style.maxHeight) {
+                subMenu.style.maxHeight = null;
+            } else {
+                subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+            }
+        }
+    }
+
+    function toggleMenu(e) {
+        e.preventDefault();
+        overlay.toggleOverlay();
+        mobileMenu.classList.toggle("active");
+    }
+    function toggleSubMenu(e) {
+        e.preventDefault();
+        var subMenu = e.target.parentElement.querySelector(".sub-menu");
+        e.target.classList.toggle("open-toggle");
+        subMenu.classList.toggle("open");
+
+        if (subMenu.style.maxHeight) {
+            subMenu.style.maxHeight = null;
+        } else {
+            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+        }
+    }
+
+    return {
+        toggleMenu: toggleMenu
+    };
 })();
