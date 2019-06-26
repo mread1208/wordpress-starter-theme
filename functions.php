@@ -63,13 +63,6 @@
 	add_action( 'init', 'register_my_menus' );
 
 	function mrtheme_customize_register( $wp_customize ) {
-		// $wp_customize->add_panel( 'mrtheme_social', array(
-		// 	'priority'       => 500,
-		// 	'theme_supports' => '',
-		// 	'title'          => __( 'Social', 'mrtheme' ),
-		// 	'description'    => __( 'Set social nav items.', 'mrtheme' ),
-		// ) );
-
 		$wp_customize->add_section( 'mrtheme_social_media' , array(
 			'title'      => __( 'Social', 'mrtheme' ),
 			// 'panel'    => 'mrtheme_social',
