@@ -9,7 +9,7 @@
 			wp_register_script('jsfunctions', get_stylesheet_directory_uri().'/js/functions.min.js', '', '', true);
 			wp_enqueue_script('jsfunctions');
 			
-			wp_register_style('facss', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css', false, '', 'all');
+			wp_register_style('facss', 'https://use.fontawesome.com/releases/v5.9.0/css/all.css', false, '', 'all');
 			wp_register_style('stylecss', get_stylesheet_directory_uri().'/style.min.css', false, '', 'all');
 			wp_enqueue_style('facss');
 			wp_enqueue_style('stylecss');
@@ -63,23 +63,56 @@
 	add_action( 'init', 'register_my_menus' );
 
 	function mrtheme_customize_register( $wp_customize ) {
-		$wp_customize->add_section( 'mrtheme_social' , array(
+		// $wp_customize->add_panel( 'mrtheme_social', array(
+		// 	'priority'       => 500,
+		// 	'theme_supports' => '',
+		// 	'title'          => __( 'Social', 'mrtheme' ),
+		// 	'description'    => __( 'Set social nav items.', 'mrtheme' ),
+		// ) );
+
+		$wp_customize->add_section( 'mrtheme_social_media' , array(
 			'title'      => __( 'Social', 'mrtheme' ),
-			'priority'   => 30,
+			// 'panel'    => 'mrtheme_social',
+			'priority'   => 100,
 		));
 		// Add setting
-		$wp_customize->add_setting( 'mrtheme_social', array(
+		$wp_customize->add_setting( 'mrtheme_social_facebook', array(
 			'default'           => __( '', 'mrtheme' ),
 			'sanitize_callback' => 'sanitize_text'
-		) );
+	   ) );
 		// Add control
-		$wp_customize->add_control( 'mrtheme_social_facebook', array(
-			'type' => 'text',
-			'section' => 'mrtheme_social',
-			"setting" => "mrtheme_social",
-			'label' => __( 'Facebook' ),
-			'description' => __( 'Facebook URL.' ),
-		  ) );
+		$wp_customize->add_control( new WP_Customize_Control(
+			$wp_customize,
+			'mrtheme_social_facebook',
+				array(
+					'label'    => __( 'Facebook', 'mrtheme' ),
+					'section'  => 'mrtheme_social_media',
+					'settings' => 'mrtheme_social_facebook',
+					'description' => __( 'Include the full URL (including https://)', 'mrtheme' ),
+					'type'     => 'text'
+				)
+			)
+		);
+		
+		// Add setting
+		$wp_customize->add_setting( 'mrtheme_social_twitter', array(
+			'default'           => __( '', 'mrtheme' ),
+			'sanitize_callback' => 'sanitize_text'
+	   ) );
+		// Add control
+		$wp_customize->add_control( new WP_Customize_Control(
+			$wp_customize,
+			'mrtheme_social_twitter',
+				array(
+					'label'    => __( 'Twitter', 'mrtheme' ),
+					'section'  => 'mrtheme_social_media',
+					'settings' => 'mrtheme_social_twitter',
+					'description' => __( 'Include the full URL (including https://)', 'mrtheme' ),
+					'type'     => 'text'
+				)
+			)
+		);
+
 		// Sanitize text
 		function sanitize_text( $text ) {
 			return sanitize_text_field( $text );
@@ -88,13 +121,13 @@
 	 add_action( 'customize_register', 'mrtheme_customize_register' );
 
 	function showSocialNav() {
-		$facebook = get_theme_mod( 'social_facebook', "");
-		$twitter = get_theme_mod( 'social_twitter', "");
+		$facebook = get_theme_mod( 'mrtheme_social_facebook', "");
+		$twitter = get_theme_mod( 'mrtheme_social_twitter', "");
 		if($facebook == "" && $twitter == "") {
-			return $facebook;
+			return false;
+		} else {
+			return true;
 		}
-
-		return true;
 	}
 	
 	function format_comment($comment, $args, $depth) {

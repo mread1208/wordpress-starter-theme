@@ -36,14 +36,48 @@
 
     .header--header-wrapper--utility {
         display: flex;
-        justify-content: flex-end;
-        flex: 1 1 100%;
+        flex: 1 1 auto;
+        flex-wrap: wrap;
 
-        .header--header-wrapper--utility--item {
-            .header--header-wrapper--utility--social-nav {
+        @include bp($small) {
+            justify-content: flex-end;
+        }
+
+        .header--header-wrapper--utility--social-nav {
+            flex: 0 0 100%;
+
+            .social-nav {
+                margin: 0 0 10px 0;
+                padding: 0;
+                list-style: none;
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+                @include bp($small) {
+                    justify-content: flex-end;
+                }
+
+                li {
+                    a {
+                        display: block;
+                        padding: 0 5px;
+                    }
+
+                    &:last-child a {
+                        padding-right: 0;
+                    }
+                }
             }
+        }
 
-            .header--header-wrapper--utility--searchform {
+        .header--header-wrapper--utility--searchform {
+            flex: 0 0 100%;
+
+            form {
+                @include bp($small) {
+                    float: right;
+                }
             }
         }
     }

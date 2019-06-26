@@ -32,11 +32,26 @@
 					</a>
 				</div>
 				<div class="header--header-wrapper--utility">
-				<?php if(showSocialNav()) { ?>
-					<div class="header--header-wrapper--utility--social-nav">
-					asdf
-					</div>
-				<?php } ?>
+					<?php if(showSocialNav()) : ?>
+						<div class="header--header-wrapper--utility--social-nav">
+							<ul class="social-nav">
+								<?php if( get_theme_mod( 'mrtheme_social_facebook') != "" ): ?>
+									<li>
+										<a target="_blank" href="<?php echo get_theme_mod( 'mrtheme_social_facebook'); ?>">
+											<i class="fa fa-facebook"></i>
+										</a>
+									</li>
+								<?php endif; ?>
+								<?php if( get_theme_mod( 'mrtheme_social_twitter') != "" ): ?>
+									<li>
+										<a target="_blank" href="<?php echo get_theme_mod( 'mrtheme_social_twitter'); ?>">
+											<i class="fa fa-twitter"></i>
+										</a>
+									</li>
+								<?php endif; ?>
+							</ul>
+						</div>
+					<?php endif; ?>
 					<div class="header--header-wrapper--utility--searchform">
 						<?= get_search_form(); ?>
 					</div>
