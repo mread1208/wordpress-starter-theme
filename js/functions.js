@@ -41,8 +41,15 @@ var menu = (function() {
             mobileSubMenuBtns[k].parentElement.classList.contains("current-menu-parent") ||
             mobileSubMenuBtns[k].parentElement.classList.contains("current-menu-item")
         ) {
+            var subMenu = mobileSubMenuBtns[k].parentElement.querySelector(".sub-menu");
+
             mobileSubMenuBtns[k].classList.add("open-toggle");
-            mobileSubMenuBtns[k].parentElement.querySelector(".sub-menu").classList.add("open");
+            subMenu.classList.add("open");
+            if (subMenu.style.maxHeight) {
+                subMenu.style.maxHeight = null;
+            } else {
+                subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+            }
         }
     }
 
@@ -53,8 +60,15 @@ var menu = (function() {
     }
     function toggleSubMenu(e) {
         e.preventDefault();
+        var subMenu = e.target.parentElement.querySelector(".sub-menu");
         e.target.classList.toggle("open-toggle");
-        e.target.parentElement.querySelector(".sub-menu").classList.toggle("open");
+        subMenu.classList.toggle("open");
+
+        if (subMenu.style.maxHeight) {
+            subMenu.style.maxHeight = null;
+        } else {
+            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+        }
     }
 
     return {
