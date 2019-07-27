@@ -118,6 +118,19 @@
             background: #cccccc;
         }
 
+        &.menu-item-has-children > a {
+            &:after {
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: "\f107"; // angle-down
+                margin-left: 10px;
+            }
+
+            &.open-toggle:after {
+                content: "\f106"; // angle-up
+            }
+        }
+
         > a {
             display: block;
             padding: 1rem 1.5625rem; //25px
@@ -129,14 +142,17 @@
         }
 
         .sub-menu {
-            display: none;
+            display: block;
             position: absolute;
             width: 200px;
             background: #ffffff;
-            border: 1px solid #cccccc;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
 
             &.open {
-                display: block;
+                // moved to open so the border doesn't show until transition
+                border: 1px solid #cccccc;
             }
         }
     }
