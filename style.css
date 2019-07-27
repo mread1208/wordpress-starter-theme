@@ -436,7 +436,7 @@ button {
   .primary-menu li {
     position: relative;
     flex: 0 0 auto; }
-    .primary-menu li.current-menu-ancestor a {
+    .primary-menu li.current-menu-ancestor > a {
       font-weight: bold; }
     .primary-menu li.current-menu-item > a {
       font-weight: bold;
@@ -464,6 +464,12 @@ button {
       transition: max-height 0.3s ease-out; }
       .primary-menu li .sub-menu.open {
         border: 1px solid #cccccc; }
+      .primary-menu li .sub-menu .current-menu-item > a,
+      .primary-menu li .sub-menu a:hover {
+        color: #ffffff;
+        background: #164f86; }
+      .primary-menu li .sub-menu :not(:first-child) a {
+        border-top: 1px solid #cccccc; }
 
 .mobile-menu {
   position: fixed;

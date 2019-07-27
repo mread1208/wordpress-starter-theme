@@ -109,7 +109,7 @@
         position: relative;
         flex: 0 0 auto;
 
-        &.current-menu-ancestor a {
+        &.current-menu-ancestor > a {
             font-weight: bold;
         }
 
@@ -145,7 +145,7 @@
             display: block;
             position: absolute;
             width: 200px;
-            background: #ffffff;
+            background: $white;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
@@ -153,6 +153,16 @@
             &.open {
                 // moved to open so the border doesn't show until transition
                 border: 1px solid #cccccc;
+            }
+
+            .current-menu-item > a,
+            a:hover {
+                color: $white;
+                background: $primary-color;
+            }
+
+            :not(:first-child) a {
+                border-top: 1px solid #cccccc;
             }
         }
     }
@@ -171,7 +181,7 @@
     transform: translate3d(-100%, 0px, 0px);
     padding: 25px;
     background: #666666;
-    color: #ffffff;
+    color: $white;
     transition: transform 0.3s ease-out;
 
     &.active {
@@ -188,7 +198,7 @@
         margin-right: 10px;
         .fa {
             font-size: 26px;
-            color: #ffffff;
+            color: $white;
         }
     }
 
@@ -209,7 +219,7 @@
 
             & > a {
                 padding: 10px;
-                color: #ffffff;
+                color: $white;
                 display: block;
                 border-left: 5px solid #666666;
 
