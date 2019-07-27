@@ -28,7 +28,7 @@ var menu = (function() {
     var mobileSubMenuBtns = primaryMenuMobile.querySelectorAll(".menu-item-has-children > a");
 
     for (i = 0; i < toggleMobileMenuBtns.length; i++) {
-        toggleMobileMenuBtns[i].addEventListener("click", toggleMenu);
+        toggleMobileMenuBtns[i].addEventListener("click", toggleMobileMenu);
     }
     for (j = 0; j < subMenuBtns.length; j++) {
         subMenuBtns[j].addEventListener("click", toggleSubMenu);
@@ -53,7 +53,14 @@ var menu = (function() {
         }
     }
 
-    function toggleMenu(e) {
+    // Hide mobile menu and overlay on resize > 600
+    window.addEventListener("resize", function(e) {
+        if (document.body.clientWidth >= 600 && mobileMenu.classList.contains("active")) {
+            toggleMobileMenu(e);
+        }
+    });
+
+    function toggleMobileMenu(e) {
         e.preventDefault();
         overlay.toggleOverlay();
         mobileMenu.classList.toggle("active");
@@ -72,6 +79,6 @@ var menu = (function() {
     }
 
     return {
-        toggleMenu: toggleMenu
+        toggleMobileMenu: toggleMobileMenu
     };
 })();
