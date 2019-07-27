@@ -38,14 +38,14 @@
 								<?php if( get_theme_mod( 'mrtheme_social_facebook') != "" ): ?>
 									<li>
 										<a target="_blank" href="<?php echo get_theme_mod( 'mrtheme_social_facebook'); ?>">
-											<i class="fa fa-facebook"></i>
+											<i class="fab fa-facebook"></i>
 										</a>
 									</li>
 								<?php endif; ?>
 								<?php if( get_theme_mod( 'mrtheme_social_twitter') != "" ): ?>
 									<li>
 										<a target="_blank" href="<?php echo get_theme_mod( 'mrtheme_social_twitter'); ?>">
-											<i class="fa fa-twitter"></i>
+											<i class="fab fa-twitter"></i>
 										</a>
 									</li>
 								<?php endif; ?>
