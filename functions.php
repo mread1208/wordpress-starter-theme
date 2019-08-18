@@ -106,6 +106,20 @@
 			)
 		);
 
+		$wp_customize->add_setting('default_banner', array(
+			'default' => ''
+		));
+
+		$wp_customize->add_control( new WP_Customize_Image_Control(
+			$wp_customize,
+			'default_banner',
+			array(
+				'label'      => __( 'Default Banner Image', 'mrtheme' ),
+				'section'    => 'title_tagline',
+				'settings'   => 'default_banner'
+			)
+		));
+
 		// Sanitize text
 		function sanitize_text( $text ) {
 			return sanitize_text_field( $text );

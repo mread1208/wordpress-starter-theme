@@ -42,9 +42,9 @@ if(is_singular("post")) {
 		$bannerImg = get_the_post_thumbnail_url(get_option( 'page_for_posts'), "full");
 	}
 }
-// If still blank, set default
+// If still blank, get default from customizer
 if($bannerImg == "") {
-	$bannerImg = get_template_directory_uri()."/img/default_banner.jpg";
+	$bannerImg = get_theme_mod( 'default_banner' );
 } ?>
 <section class="banner" style="background-image: url('<?= $bannerImg; ?>');'">
 	<div class="container">
