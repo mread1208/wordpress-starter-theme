@@ -1,7 +1,10 @@
 $primary-color: #164f86;
 $white: #ffffff;
 
+$primary-text-color: #212529;
+
 $link-color: $primary-color;
+$link-hover-color: darken($link-color, 10%);
 
 $small: 600px;
 $medium: 900px;
