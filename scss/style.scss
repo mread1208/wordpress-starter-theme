@@ -5,6 +5,8 @@ Author: Michael Read
 Author URI: http://www.michaelcread.com
 Version:		1.0.0
 */
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700&display=swap");
+
 @import "_.settings/variables";
 @import "_.settings/mixins";
 @import "_.bolierplate/reboot";
@@ -16,6 +18,7 @@ img {
 @import "_partials/text.scss";
 @import "_partials/forms.scss";
 @import "_partials/header.scss";
+@import "_partials/banner.scss";
 
 .align-right {
     float: right;
