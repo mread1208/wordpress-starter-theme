@@ -315,6 +315,11 @@ img {
   .wrapper--primary-color + .wrapper--primary-color {
     padding-top: 0; }
 
+.wrapper--secondary-color {
+  background: #cea315; }
+  .wrapper--secondary-color + .wrapper--secondary-color {
+    padding-top: 0; }
+
 .container {
   margin: auto;
   max-width: 1170px;
