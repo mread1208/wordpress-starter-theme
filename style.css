@@ -583,6 +583,25 @@ button {
       text-transform: uppercase;
       font-family: "PT Serif", serif; }
 
+.sidebar .widget {
+  margin: 0 0 20px 0; }
+  .sidebar .widget ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .sidebar .widget ul a {
+      display: block;
+      line-height: 22px;
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px; }
+      .sidebar .widget ul a:before {
+        position: absolute;
+        font-family: "Font Awesome 5 Free";
+        content: "\f054";
+        font-weight: 900;
+        left: 0; }
+
 .align-right {
   float: right; }
 
@@ -659,12 +678,7 @@ Widgets
 *************************************/
 .widget {
   margin-bottom: 10px;
-  padding-bottom: 10px;
-  width: 100%;
-  display: inline-block; }
-
-.widget ul {
-  list-style: none; }
+  padding-bottom: 10px; }
 
 /*************************************
 Footer

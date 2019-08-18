@@ -19,6 +19,7 @@ img {
 @import "_partials/forms.scss";
 @import "_partials/header.scss";
 @import "_partials/banner.scss";
+@import "_partials/sidebar.scss";
 
 .align-right {
     float: right;
@@ -124,15 +125,6 @@ Widgets
 .widget {
     margin-bottom: 10px;
     padding-bottom: 10px;
-    width: 100%;
-    display: inline-block;
-}
-.widget ul {
-    list-style: none;
-}
-.widget ul li {
-}
-.widget ul li a {
 }
 
 /*************************************
