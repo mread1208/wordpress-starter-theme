@@ -85,6 +85,7 @@
 .header--header--menu {
     flex: 0 0 100%;
     display: none;
+    margin-top: 15px;
 
     @include bp($small) {
         flex: 1 1 100%;
@@ -93,9 +94,6 @@
 }
 
 .primary-menu {
-    border-top: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
-
     ul {
         display: flex;
         flex-wrap: wrap;

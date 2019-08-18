@@ -22,13 +22,24 @@ var menu = (function() {
     var mobileMenu = document.querySelector(".js-mobile-menu");
 
     var primaryMenu = document.querySelector(".primary-menu");
+    var subMenus = primaryMenu.querySelectorAll(".menu-item-has-children > ul.sub-menu");
     var subMenuBtns = primaryMenu.querySelectorAll(".menu-item-has-children > a");
 
     var primaryMenuMobile = document.querySelector(".primary-menu-mobile");
+    var mobileSubMenus = primaryMenuMobile.querySelectorAll(
+        ".menu-item-has-children > ul.sub-menu"
+    );
     var mobileSubMenuBtns = primaryMenuMobile.querySelectorAll(".menu-item-has-children > a");
 
     for (i = 0; i < toggleMobileMenuBtns.length; i++) {
         toggleMobileMenuBtns[i].addEventListener("click", toggleMobileMenu);
+    }
+    // Set subMenu attributes
+    for (l = 0; l < subMenus.length; l++) {
+        subMenus[l].setAttribute("aria-hidden", "true");
+    }
+    for (m = 0; m < mobileSubMenus.length; m++) {
+        mobileSubMenus[m].setAttribute("aria-hidden", "true");
     }
     for (j = 0; j < subMenuBtns.length; j++) {
         subMenuBtns[j].addEventListener("click", toggleSubMenu);
@@ -62,14 +73,21 @@ var menu = (function() {
 
     function toggleMobileMenu(e) {
         e.preventDefault();
+        var ariaHidden = mobileMenu.getAttribute("aria-hidden") === "true" || false;
         overlay.toggleOverlay();
         mobileMenu.classList.toggle("active");
+        mobileMenu.setAttribute("aria-hidden", !ariaHidden);
     }
     function toggleSubMenu(e) {
         e.preventDefault();
         var subMenu = e.target.parentElement.querySelector(".sub-menu");
+        var expanded = e.target.getAttribute("aria-expanded") === "true" || false;
+        var ariaHidden = subMenu.getAttribute("aria-hidden") === "true" || false;
         e.target.classList.toggle("open-toggle");
+        e.target.setAttribute("aria-expanded", !expanded);
         subMenu.classList.toggle("open");
+        subMenu.setAttribute("aria-hidden", !ariaHidden);
+        console.log(expanded);
 
         if (subMenu.style.maxHeight) {
             subMenu.style.maxHeight = null;

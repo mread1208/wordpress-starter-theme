@@ -437,60 +437,58 @@ button {
 
 .header--header--menu {
   flex: 0 0 100%;
-  display: none; }
+  display: none;
+  margin-top: 15px; }
   @media (min-width: 600px) {
     .header--header--menu {
       flex: 1 1 100%;
       display: block; } }
 
-.primary-menu {
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc; }
-  .primary-menu ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    width: 100%;
-    margin: 0;
-    padding: 0; }
-  .primary-menu li {
-    position: relative;
-    flex: 0 0 auto; }
-    .primary-menu li.current-menu-ancestor > a {
-      font-weight: bold; }
-    .primary-menu li.current-menu-item > a {
-      font-weight: bold;
-      background: #cccccc; }
-    .primary-menu li.menu-item-has-children > a:after {
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      content: "\f107";
-      margin-left: 10px; }
-    .primary-menu li.menu-item-has-children > a.open-toggle:after {
-      content: "\f106"; }
-    .primary-menu li > a {
-      display: block;
-      padding: 1rem 1.5625rem; }
-    .primary-menu li a:hover {
-      text-decoration: none;
-      background: #cccccc; }
-    .primary-menu li .sub-menu {
-      display: block;
-      position: absolute;
-      width: 200px;
-      background: #ffffff;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-      z-index: 10; }
-      .primary-menu li .sub-menu.open {
-        border: 1px solid #cccccc; }
-      .primary-menu li .sub-menu .current-menu-item > a,
-      .primary-menu li .sub-menu a:hover {
-        color: #ffffff;
-        background: #164f86; }
-      .primary-menu li .sub-menu :not(:first-child) a {
-        border-top: 1px solid #cccccc; }
+.primary-menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+.primary-menu li {
+  position: relative;
+  flex: 0 0 auto; }
+  .primary-menu li.current-menu-ancestor > a {
+    font-weight: bold; }
+  .primary-menu li.current-menu-item > a {
+    font-weight: bold;
+    background: #cccccc; }
+  .primary-menu li.menu-item-has-children > a:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f107";
+    margin-left: 10px; }
+  .primary-menu li.menu-item-has-children > a.open-toggle:after {
+    content: "\f106"; }
+  .primary-menu li > a {
+    display: block;
+    padding: 1rem 1.5625rem; }
+  .primary-menu li a:hover {
+    text-decoration: none;
+    background: #cccccc; }
+  .primary-menu li .sub-menu {
+    display: block;
+    position: absolute;
+    width: 200px;
+    background: #ffffff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    z-index: 10; }
+    .primary-menu li .sub-menu.open {
+      border: 1px solid #cccccc; }
+    .primary-menu li .sub-menu .current-menu-item > a,
+    .primary-menu li .sub-menu a:hover {
+      color: #ffffff;
+      background: #164f86; }
+    .primary-menu li .sub-menu :not(:first-child) a {
+      border-top: 1px solid #cccccc; }
 
 .mobile-menu {
   position: fixed;
