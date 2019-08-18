@@ -481,7 +481,8 @@ button {
       background: #ffffff;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease-out; }
+      transition: max-height 0.3s ease-out;
+      z-index: 10; }
       .primary-menu li .sub-menu.open {
         border: 1px solid #cccccc; }
       .primary-menu li .sub-menu .current-menu-item > a,
