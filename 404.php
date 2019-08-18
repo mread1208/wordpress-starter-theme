@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 	<?php get_template_part('content', 'banner'); ?>
-	<section id="main">	
+	<section id="main" class="wrapper wrapper--white">	
 		<div class="container">
 			<div class="primary">
 				<div id="post-<?php the_ID(); ?>" class="page-content">

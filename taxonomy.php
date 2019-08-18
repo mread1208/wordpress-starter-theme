@@ -1,19 +1,16 @@
 <?php get_header(); ?>
-	<section id="banner">
-		<div class="container">
-			<div id="banner-image" class="blog-banner">
-				<h2>Title Here</h2>
-			</div>
-		</div>
-	</section>
-	<section id="main">	
+	<?php get_template_part('content', 'banner'); ?>
+	<section id="main" class="wrapper wrapper--white">	
 		<div class="container">
 			<div class="content-container">
 				<div class="primary">
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-						<div class="blog-entry">
-							<?php the_content(); ?>
-						</div><?php // .blog-entry ?>
+						<div id="post-<?php the_ID(); ?>" <?php post_class('posts-page-content'); ?>>
+							<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+							<div class="entry">
+								<?php the_excerpt(); ?>
+							</div>
+						</div>
 					<?php endwhile; ?>
 					<?php else : ?>
 						<h2>Nothing found</h2>

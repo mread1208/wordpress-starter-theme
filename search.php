@@ -1,34 +1,25 @@
 <?php get_header(); ?>
-	<?php if (have_posts()) : ?>
-		<section id="banner">
-			<div class="container">
-				<div id="banner-image" class="blog-banner">
-					<h2><?php printf( __( 'Search Results for: %s', 'twentytwelve' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
-				</div>
-			</div>
-		</section>
-		<section id="main">	
-			<div class="container">
+	<?php get_template_part('content', 'banner'); ?>
+	<section id="main" class="wrapper wrapper--white">	
+		<div class="container">
+			<div class="content-container">
 				<div class="primary">
-					<?php while (have_posts()) : the_post(); ?>
-						<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-							<h2><?php the_title(); ?></h2>
-							<div class="entry">
-								<?php the_excerpt(); ?>
+					<?php if (have_posts()) : ?>
+						<?php while (have_posts()) : the_post(); ?>
+							<div id="post-<?php the_ID(); ?>" <?php post_class('posts-page-content'); ?>>
+								<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+								<div class="entry">
+									<?php the_excerpt(); ?>
+								</div>
 							</div>
-						</div>
-					<?php endwhile; ?>
-				</div>
+						<?php endwhile; ?>
+					<?php else : ?>
+						<h2>Sorry, No Posts Found</h2>
+						<p>Use the navigation links above or try searching again.</p>
+					<?php endif; ?>
+				</div><?php // #primary ?>
 				<?php get_sidebar(); ?>
 			</div>
-		</section>
-	<?php else : ?>
-		<section id="banner">
-			<div class="container">
-				<div id="banner-image" class="blog-banner">
-					<h2>No Posts Found</h2>
-				</div>
-			</div>
-		</section>
-	<?php endif; ?>
+		</div><?php // .container ?>
+	</section><?php // #banner ?>
 <?php get_footer(); ?>

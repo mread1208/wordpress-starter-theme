@@ -296,6 +296,25 @@ template {
 img {
   max-width: 100%; }
 
+.wrapper {
+  padding: 20px 0; }
+  @media (min-width: 600px) {
+    .wrapper {
+      padding: 30px 0; } }
+  @media (min-width: 900px) {
+    .wrapper {
+      padding: 40px 0; } }
+
+.wrapper--white {
+  background: #ffffff; }
+  .wrapper--white + .wrapper--white {
+    padding-top: 0; }
+
+.wrapper--primary-color {
+  background: #164f86; }
+  .wrapper--primary-color + .wrapper--primary-color {
+    padding-top: 0; }
+
 .container {
   margin: auto;
   max-width: 1170px;

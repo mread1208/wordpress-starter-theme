@@ -1,16 +1,6 @@
 <?php get_header(); ?>
-	<section id="banner">
-		<div class="container">
-			<div id="banner-image">
-				<?php if(has_post_thumbnail()) { 
-					the_post_thumbnail('large');
-				} else {
-					echo '<img src="'.get_bloginfo('template_url').'/img/page-banner-default.jpg" alt="'.get_the_title().' Banner Image" />';	
-				} ?>
-			</div><?php // #banner-image ?>
-		</div><?php // .container ?>
-	</section><?php // #banner ?>
-	<section id="main">	
+	<?php get_template_part('content', 'banner'); ?>
+	<section id="main" class="wrapper wrapper--white">	
 		<div class="container">
 			<div class="content-container">
 				<div class="primary">
