@@ -27,9 +27,15 @@
 					<a class="js-toggle-mobile-menu" href="#"><i class="fa fa-bars"></i></a>
 				</div>
 				<div class="header--header-wrapper--logo">
-					<a href="<?php echo home_url(); ?>">
-						<img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
-					</a>
+					<?php $themeLogoID = get_theme_mod( 'custom_logo' );
+					if($themeLogoID == "") { ?>
+						<p>Upload a logo using the theme customizer</p>
+					<?php } else { ?>
+						<a href="<?php echo home_url(); ?>">
+							<?php $themeLogo = wp_get_attachment_image_src( $themeLogoID , 'full' ); ?>
+							<img src="<?= $themeLogo[0]; ?>" alt="<?php bloginfo('name'); ?> Logo" />
+						</a>
+					<?php } ?>
 				</div>
 				<div class="header--header-wrapper--utility">
 					<?php if(showSocialNav()) : ?>

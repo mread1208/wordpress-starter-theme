@@ -122,6 +122,18 @@
 			return true;
 		}
 	}
+
+	function mrtheme_custom_logo_setup() {
+		$defaults = array(
+			'height'      => 200,
+			'width'       => 500,
+			'flex-height' => true,
+			'flex-width'  => true,
+			'header-text' => array( 'site-title', 'site-description' ),
+		);
+		add_theme_support( 'custom-logo', $defaults );
+	}
+	add_action( 'after_setup_theme', 'mrtheme_custom_logo_setup' );
 	
 	function format_comment($comment, $args, $depth) {
     	$GLOBALS['comment'] = $comment; ?>
