@@ -1,0 +1,40 @@
+.banner {
+    height: 350px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    &:before {
+        top: 0;
+        left: 0;
+        content: " ";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 0;
+    }
+
+    .container {
+        height: 100%;
+        position: relative;
+    }
+
+    .banner--content {
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+
+        .banner--content--title {
+            flex: 0 0 100%;
+            text-align: center;
+            color: $white;
+            text-transform: uppercase;
+            font-family: $secondary-font;
+        }
+    }
+}
