@@ -1,3 +1,5 @@
+const sass = require("node-sass");
+
 module.exports = function(grunt) {
     // load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
     require("load-grunt-tasks")(grunt);
@@ -6,6 +8,14 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
         sass: {
+            options: {
+                implementation: sass,
+                sourceMap: false,
+                precision: 5,
+                outputStyle: "expanded",
+                indentType: "tab",
+                indentWidth: 1
+            },
             dist: {
                 files: {
                     "style.css": "scss/style.scss"

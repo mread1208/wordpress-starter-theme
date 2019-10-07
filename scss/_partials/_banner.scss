@@ -6,7 +6,7 @@
     background-position: center center;
     background-color: #000000;
 
-    &:before {
+    &::before {
         top: 0;
         left: 0;
         content: " ";
