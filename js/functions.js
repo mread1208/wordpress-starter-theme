@@ -100,3 +100,26 @@ var menu = (function() {
         toggleMobileMenu: toggleMobileMenu
     };
 })();
+
+var modals = (function() {
+    var modalTriggers = document.querySelectorAll(".js-modal-trigger");
+    var modalCloseBtns = document.querySelectorAll(".js-modal-close");
+
+    for (i = 0; i < modalTriggers.length; i++) {
+        modalTriggers[i].addEventListener("click", toggleModal);
+    }
+    for (j = 0; j < modalCloseBtns.length; j++) {
+        modalCloseBtns[j].addEventListener("click", toggleModal);
+    }
+
+    function toggleModal(e) {
+        e.preventDefault();
+        var modalTarget = document.querySelector("#" + e.target.getAttribute("data-modal-trigger"));
+        modalTarget.classList.toggle("active");
+        if (modalTarget.classList.contains("active")) {
+            // Reinit swipers if they're inside modals.
+            swipers.init();
+        }
+        overlay.toggleOverlay();
+    }
+})();
