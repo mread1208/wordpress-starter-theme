@@ -10,3 +10,5 @@ node_modules/
 .sass-cache/*
 
 *.map
+
+report/

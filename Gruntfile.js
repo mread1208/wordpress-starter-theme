@@ -12,6 +12,21 @@ module.exports = function(grunt) {
                 }
             }
         },
+        stylelint: {
+            options: {
+                configFile: ".stylelintrc",
+                formatter: "json",
+                ignoreDisables: false,
+                failOnError: true,
+                outputFile: "report/css-lint/log.json",
+                reportNeedlessDisables: false
+            },
+            styleguide: {
+                src: [
+                    "scss/*.scss"
+                ]
+            }
+        },
         postcss: {
             defaults: {
                 options: {
