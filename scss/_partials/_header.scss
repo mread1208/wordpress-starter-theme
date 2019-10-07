@@ -117,14 +117,14 @@
         }
 
         &.menu-item-has-children > a {
-            &:after {
+            &::after {
                 font-family: "Font Awesome 5 Free";
                 font-weight: 900;
                 content: "\f107"; // angle-down
                 margin-left: 10px;
             }
 
-            &.open-toggle:after {
+            &.open-toggle::after {
                 content: "\f106"; // angle-up
             }
         }
@@ -177,14 +177,14 @@
     min-width: 320px;
     z-index: 9999;
     overflow: hidden;
-    transform: translate3d(-100%, 0px, 0px);
+    transform: translate3d(-100%, 0, 0);
     padding: 25px;
     background: #666666;
     color: $white;
     transition: transform 0.3s ease-out;
 
     &.active {
-        transform: translate3d(0%, 0px, 0px);
+        transform: translate3d(0%, 0, 0);
     }
 
     .mobile-menu--close {
@@ -241,11 +241,11 @@
                     align-items: center;
                 }
 
-                & > a:after {
+                & > a::after {
                     font-size: 22px;
                     content: "+";
                 }
-                & > a.open-toggle:after {
+                & > a.open-toggle::after {
                     content: "-";
                 }
             }
