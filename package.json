@@ -1,39 +1,39 @@
 {
-    "name": "wordpress-starter-theme",
-    "version": "1.0.0",
-    "description": "A starter theme for WordPress",
-    "main": "Gruntfile.js",
-    "devDependencies": {
-        "autoprefixer": "^9.6.1",
-        "cssnano": "^4.1.10",
-        "grunt": "^1.0.4",
-        "grunt-contrib-jshint": "^2.1.0",
-        "grunt-contrib-sass": "^1.0.0",
-        "grunt-contrib-uglify": "^4.0.1",
-        "grunt-contrib-watch": "^1.1.0",
-        "grunt-postcss": "^0.9.0",
-        "grunt-stylelint": "^0.11.1",
-        "load-grunt-tasks": "^5.1.0",
-        "prettier": "1.18.2",
-        "stylelint": "^11.0.0",
-        "stylelint-config-prettier": "^6.0.0",
-        "stylelint-no-unsupported-browser-features": "^3.0.2",
-        "stylelint-prettier": "^1.1.1"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mread1208/wordpress-starter-theme.git"
-    },
-    "keywords": [
-        "WordPress"
-    ],
-    "author": "Michael Read",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/mread1208/wordpress-starter-theme/issues"
-    },
-    "homepage": "https://github.com/mread1208/wordpress-starter-theme#readme"
+  "name": "wordpress-starter-theme",
+  "version": "1.0.0",
+  "description": "A starter theme for WordPress",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "cssnano": "^4.1.10",
+    "grunt": "^1.0.4",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-postcss": "^0.9.0",
+    "grunt-stylelint": "^0.11.1",
+    "load-grunt-tasks": "^5.1.0",
+    "prettier": "1.18.2",
+    "stylelint": "^11.0.0",
+    "stylelint-config-prettier": "^6.0.0",
+    "stylelint-no-unsupported-browser-features": "^3.0.2",
+    "stylelint-prettier": "^1.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mread1208/wordpress-starter-theme.git"
+  },
+  "keywords": [
+    "WordPress"
+  ],
+  "author": "Michael Read",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mread1208/wordpress-starter-theme/issues"
+  },
+  "homepage": "https://github.com/mread1208/wordpress-starter-theme#readme"
 }
