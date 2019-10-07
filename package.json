@@ -16,7 +16,11 @@
         "grunt-contrib-watch": "^1.1.0",
         "grunt-postcss": "^0.9.0",
         "load-grunt-tasks": "^5.1.0",
-        "prettier": "1.18.2"
+        "prettier": "1.18.2",
+        "stylelint": "^11.0.0",
+        "stylelint-config-prettier": "^6.0.0",
+        "stylelint-no-unsupported-browser-features": "^3.0.2",
+        "stylelint-prettier": "^1.1.1"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
