@@ -1,5 +1,5 @@
 {
-    "plugins": ["stylelint-no-unsupported-browser-features", "stylelint-prettier"],
+    "plugins": ["stylelint-no-unsupported-browser-features", "stylelint-prettier", "stylelint-order"],
     "extends": ["stylelint-prettier/recommended"],
     "rules": {
         "at-rule-name-case": "lower",
@@ -51,6 +51,11 @@
         "no-missing-end-of-source-newline": true,
         "number-leading-zero": "always",
         "number-no-trailing-zeros": true,
+        "order/order": [
+			"custom-properties",
+			"declarations"
+		],
+		"order/properties-alphabetical-order": true,
         "plugin/no-unsupported-browser-features": [
             true,
             {

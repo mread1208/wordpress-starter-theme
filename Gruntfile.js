@@ -60,7 +60,7 @@ module.exports = function(grunt) {
         watch: {
             css: {
                 files: ["scss/**/*.scss", "js/functions.js"],
-                tasks: ["sass", "postcss", "uglify:mrstarter"]
+                tasks: ["sass", "stylelint", "postcss", "uglify:mrstarter"]
             }
         }
     });
