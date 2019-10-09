@@ -39,11 +39,11 @@ section {
 
 body {
     margin: 0;
-    font-family: $primary-font;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
     color: $primary-text-color;
+    font-weight: 400;
+    font-size: 1rem;
+    font-family: $primary-font;
+    line-height: 1.5;
     text-align: left;
     background-color: #ffffff;
 }
@@ -75,8 +75,8 @@ p {
 
 abbr[title],
 abbr[data-original-title] {
-    text-decoration: underline;
     -webkit-text-decoration: underline dotted;
+    text-decoration: underline;
     text-decoration: underline dotted;
     cursor: help;
     border-bottom: 0;
@@ -174,9 +174,9 @@ pre,
 code,
 kbd,
 samp {
+    font-size: 1em;
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
         monospace;
-    font-size: 1em;
 }
 
 pre {
@@ -196,8 +196,8 @@ img {
 }
 
 svg {
-    overflow: hidden;
     vertical-align: middle;
+    overflow: hidden;
 }
 
 table {
@@ -236,8 +236,8 @@ select,
 optgroup,
 textarea {
     margin: 0;
-    font-family: inherit;
     font-size: inherit;
+    font-family: inherit;
     line-height: inherit;
 }
 
@@ -280,14 +280,14 @@ input[type="month"] {
 }
 
 textarea {
-    overflow: auto;
     resize: vertical;
+    overflow: auto;
 }
 
 fieldset {
     min-width: 0;
-    padding: 0;
     margin: 0;
+    padding: 0;
     border: 0;
 }
 
@@ -295,11 +295,11 @@ legend {
     display: block;
     width: 100%;
     max-width: 100%;
-    padding: 0;
     margin-bottom: 0.5rem;
+    padding: 0;
+    color: inherit;
     font-size: 1.5rem;
     line-height: inherit;
-    color: inherit;
     white-space: normal;
 }
 

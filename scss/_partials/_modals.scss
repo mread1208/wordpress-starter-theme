@@ -2,14 +2,14 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    display: none;
     width: 600px;
     max-width: 100%;
     height: auto;
     max-height: 100%;
     background-color: $white;
+    transform: translate(-50%, -50%);
     z-index: 30;
-    display: none;
 
     &.active {
         display: flex;
@@ -33,9 +33,9 @@
     height: 100%;
     /* spacing as needed */
     padding: 20px;
+    color: $black;
     /* let it scroll */
     overflow: auto;
-    color: $black;
 
     img {
         max-width: 100%;

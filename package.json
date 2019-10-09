@@ -13,12 +13,15 @@
         "grunt-postcss": "^0.9.0",
         "grunt-sass": "^3.1.0",
         "grunt-stylelint": "^0.11.1",
+        "lint-staged": "^9.4.2",
         "load-grunt-tasks": "^5.1.0",
         "node-sass": "^4.12.0",
+        "pre-commit": "^1.2.2",
         "prettier": "1.18.2",
         "stylelint": "^11.0.0",
         "stylelint-config-prettier": "^6.0.0",
         "stylelint-no-unsupported-browser-features": "^3.0.2",
+        "stylelint-order": "^3.1.1",
         "stylelint-prettier": "^1.1.1"
     },
     "scripts": {

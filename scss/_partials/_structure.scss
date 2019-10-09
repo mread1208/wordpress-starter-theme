@@ -31,8 +31,8 @@
 }
 
 .container {
-    margin: auto;
     max-width: 1170px;
+    margin: auto;
     padding: 0 1.25rem; //20px
 
     @include bp($medium) {
@@ -44,10 +44,6 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-
-    @include bp($small) {
-        flex-wrap: nowrap;
-    }
 
     .primary {
         flex: 0 0 100%;
@@ -67,17 +63,21 @@
         }
     }
 
+    @include bp($small) {
+        flex-wrap: nowrap;
+    }
+
     @supports (display: grid) {
         display: grid;
-        grid-template-columns: 1fr;
-        grid-column-gap: 20px;
         grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        grid-template-columns: 1fr;
 
         @include bp($small) {
             grid-template-columns: 3fr 1fr;
             .primary {
-                padding-right: 0;
                 max-width: 100%;
+                padding-right: 0;
             }
             .sidebar {
                 max-width: 100%;

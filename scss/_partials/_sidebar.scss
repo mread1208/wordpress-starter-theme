@@ -3,23 +3,23 @@
         margin: 0 0 20px 0;
 
         ul {
-            list-style: none;
             margin: 0;
             padding: 0;
+            list-style: none;
 
             a {
-                display: block;
-                line-height: 22px;
                 position: relative;
-                padding-left: 20px;
+                display: block;
                 margin-bottom: 10px;
+                padding-left: 20px;
+                line-height: 22px;
 
                 &::before {
                     position: absolute;
+                    left: 0;
+                    font-weight: 900;
                     font-family: "Font Awesome 5 Free";
                     content: "\f054"; // cehvron-right
-                    font-weight: 900;
-                    left: 0;
                 }
             }
         }
