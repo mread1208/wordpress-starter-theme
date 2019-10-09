@@ -11,23 +11,23 @@ Comments
     list-style: none;
 }
 .commentlist li {
+    margin-top: 10px;
+    padding: 10px 2% 10px 2%;
     background: #eeeeee;
     border-top: 1px dotted #696969;
-    padding: 10px 2% 10px 2%;
-    margin-top: 10px;
 }
 .commentlist li > ul {
-    list-style: none;
     margin: 15px 0 0 60px;
+    list-style: none;
 }
 .commentlist li > ul > li {
-    background: #efefef;
     padding-left: 0;
+    background: #efefef;
 }
 .commentlist li > ul li > ul li {
     width: 100%;
-    padding-left: 0;
     padding-bottom: 0;
+    padding-left: 0;
 }
 
 .comment-wrapper {

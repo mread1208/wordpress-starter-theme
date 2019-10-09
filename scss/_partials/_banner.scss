@@ -1,41 +1,41 @@
 .banner {
-    height: 350px;
     position: relative;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    height: 350px;
     background-color: #000000;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 
     &::before {
+        position: absolute;
         top: 0;
         left: 0;
-        content: " ";
-        position: absolute;
-        height: 100%;
         width: 100%;
+        height: 100%;
         background: rgba(0, 0, 0, 0.6);
+        content: " ";
         z-index: 0;
     }
 
     .container {
-        height: 100%;
         position: relative;
+        height: 100%;
     }
 
     .banner--content {
-        height: 100%;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
         align-content: center;
+        align-items: center;
+        height: 100%;
         text-align: center;
 
         .banner--content--title {
             flex: 0 0 100%;
-            text-align: center;
             color: $white;
-            text-transform: uppercase;
             font-family: $secondary-font;
+            text-align: center;
+            text-transform: uppercase;
         }
     }
 }
