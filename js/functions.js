@@ -1,4 +1,4 @@
-var overlay = (function() {
+var overlay = (function () {
     var overlayElement = document.createElement("div");
     overlayElement.classList.add("mr-overlay");
     // overlayElement.addEventListener("click", toggleOverlay);
@@ -13,11 +13,11 @@ var overlay = (function() {
     }
 
     return {
-        toggleOverlay: toggleOverlay
+        toggleOverlay: toggleOverlay,
     };
 })();
 
-var menu = (function() {
+var menu = (function () {
     var toggleMobileMenuBtns = document.querySelectorAll(".js-toggle-mobile-menu");
     var mobileMenu = document.querySelector(".js-mobile-menu");
 
@@ -65,7 +65,7 @@ var menu = (function() {
     }
 
     // Hide mobile menu and overlay on resize > 600
-    window.addEventListener("resize", function(e) {
+    window.addEventListener("resize", function (e) {
         if (document.body.clientWidth >= 600 && mobileMenu.classList.contains("active")) {
             toggleMobileMenu(e);
         }
@@ -97,11 +97,11 @@ var menu = (function() {
     }
 
     return {
-        toggleMobileMenu: toggleMobileMenu
+        toggleMobileMenu: toggleMobileMenu,
     };
 })();
 
-var modals = (function() {
+var modals = (function () {
     var modalTriggers = document.querySelectorAll(".js-modal-trigger");
     var modalCloseBtns = document.querySelectorAll(".js-modal-close");
 

@@ -1,4 +1,6 @@
 const sass = require("node-sass");
+const webpackProdConfig = require("./webpack.prod.js");
+const webpackDevConfig = require("./webpack.dev.js");
 
 module.exports = function (grunt) {
     // load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
@@ -7,6 +9,10 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
+        webpack: {
+            prod: webpackProdConfig,
+            dev: webpackDevConfig,
+        },
         sass: {
             options: {
                 implementation: sass,
@@ -37,32 +43,25 @@ module.exports = function (grunt) {
             defaults: {
                 options: {
                     map: true,
-                    processors: [require("autoprefixer"), require("cssnano")()],
+                    processors: [require("autoprefixer")(), require("cssnano")()],
                 },
                 src: "style.css",
                 dest: "style.min.css",
             },
         },
-        uglify: {
-            options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-                compress: true,
-                sourceMap: true,
-            },
-            mrstarter: {
-                files: {
-                    "js/functions.min.js": ["js/functions.js"],
-                },
-            },
-        },
         watch: {
-            css: {
+            prod: {
                 files: ["scss/**/*.scss", "js/functions.js"],
-                tasks: ["sass", "stylelint", "postcss", "uglify:mrstarter"],
+                tasks: ["sass", "stylelint", "postcss", "webpack:prod"],
+            },
+            dev: {
+                files: ["scss/**/*.scss", "js/functions.js"],
+                tasks: ["sass", "stylelint", "postcss", "webpack:dev"],
             },
         },
     });
 
     // Default task(s).
-    grunt.registerTask("default", ["sass", "stylelint", "postcss", "uglify:mrstarter", "watch"]);
+    grunt.registerTask("default", ["sass", "stylelint", "postcss", "webpack:prod", "watch:prod"]);
+    grunt.registerTask("dev", ["sass", "stylelint", "postcss", "webpack:dev", "watch:dev"]);
 };
