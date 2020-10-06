@@ -1,4 +1,5 @@
 const sass = require("node-sass");
+const webpackConfig = require("./webpack.config.js");
 
 module.exports = function (grunt) {
     // load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
@@ -7,6 +8,9 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
+        webpack: {
+            myConfig: webpackConfig,
+        },
         sass: {
             options: {
                 implementation: sass,
@@ -43,26 +47,14 @@ module.exports = function (grunt) {
                 dest: "style.min.css",
             },
         },
-        uglify: {
-            options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-                compress: true,
-                sourceMap: true,
-            },
-            mrstarter: {
-                files: {
-                    "js/functions.min.js": ["js/functions.js"],
-                },
-            },
-        },
         watch: {
             css: {
                 files: ["scss/**/*.scss", "js/functions.js"],
-                tasks: ["sass", "stylelint", "postcss", "uglify:mrstarter"],
+                tasks: ["sass", "stylelint", "postcss", "webpack"],
             },
         },
     });
 
     // Default task(s).
-    grunt.registerTask("default", ["sass", "stylelint", "postcss", "uglify:mrstarter", "watch"]);
+    grunt.registerTask("default", ["sass", "stylelint", "postcss", "webpack", "watch"]);
 };
