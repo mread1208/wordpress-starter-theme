@@ -6,7 +6,7 @@
 	add_action( 'wp_enqueue_scripts', 'mread_load_scripts' );
 	function mread_load_scripts() {
 		if ( !is_admin() ) {
-			wp_register_script('jsfunctions', get_stylesheet_directory_uri().'/js/functions.min.js', '', '', true);
+			wp_register_script('jsfunctions', get_stylesheet_directory_uri().'/main.bundle.js', '', '', true);
 			wp_enqueue_script('jsfunctions');
 			
 			wp_register_style('facss', 'https://use.fontawesome.com/releases/v5.9.0/css/all.css', false, '', 'all');

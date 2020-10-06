@@ -1,5 +1,6 @@
 const sass = require("node-sass");
-const webpackConfig = require("./webpack.config.js");
+const webpackProdConfig = require("./webpack.prod.js");
+const webpackDevConfig = require("./webpack.dev.js");
 
 module.exports = function (grunt) {
     // load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
@@ -9,7 +10,8 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
         webpack: {
-            myConfig: webpackConfig,
+            prod: webpackProdConfig,
+            dev: webpackDevConfig,
         },
         sass: {
             options: {
@@ -48,13 +50,18 @@ module.exports = function (grunt) {
             },
         },
         watch: {
-            css: {
+            prod: {
                 files: ["scss/**/*.scss", "js/functions.js"],
-                tasks: ["sass", "stylelint", "postcss", "webpack"],
+                tasks: ["sass", "stylelint", "postcss", "webpack:prod"],
+            },
+            dev: {
+                files: ["scss/**/*.scss", "js/functions.js"],
+                tasks: ["sass", "stylelint", "postcss", "webpack:dev"],
             },
         },
     });
 
     // Default task(s).
-    grunt.registerTask("default", ["sass", "stylelint", "postcss", "webpack", "watch"]);
+    grunt.registerTask("default", ["sass", "stylelint", "postcss", "webpack:prod", "watch:prod"]);
+    grunt.registerTask("dev", ["sass", "stylelint", "postcss", "webpack:dev", "watch:dev"]);
 };

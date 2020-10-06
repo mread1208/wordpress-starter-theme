@@ -24,10 +24,12 @@
         "stylelint-no-unsupported-browser-features": "^4.0.0",
         "stylelint-order": "^4.1.0",
         "stylelint-prettier": "^1.1.2",
-        "webpack": "^4.44.2"
+        "webpack": "^4.44.2",
+        "webpack-merge": "^5.1.4"
     },
     "scripts": {
-        "build": "webpack --config webpack.config.js"
+        "start": "grunt",
+        "dev": "grunt dev"
     },
     "repository": {
         "type": "git",
