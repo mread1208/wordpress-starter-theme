@@ -1,4 +1,4 @@
-var overlay = (function () {
+const overlay = (function () {
     var overlayElement = document.createElement("div");
     overlayElement.classList.add("mr-overlay");
     // overlayElement.addEventListener("click", toggleOverlay);
@@ -17,7 +17,7 @@ var overlay = (function () {
     };
 })();
 
-var menu = (function () {
+const menu = (function () {
     var toggleMobileMenuBtns = document.querySelectorAll(".js-toggle-mobile-menu");
     var mobileMenu = document.querySelector(".js-mobile-menu");
 
@@ -101,7 +101,7 @@ var menu = (function () {
     };
 })();
 
-var modals = (function () {
+const modals = (function () {
     var modalTriggers = document.querySelectorAll(".js-modal-trigger");
     var modalCloseBtns = document.querySelectorAll(".js-modal-close");
 
