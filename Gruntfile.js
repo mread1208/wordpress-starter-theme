@@ -51,11 +51,11 @@ module.exports = function (grunt) {
         },
         watch: {
             prod: {
-                files: ["scss/**/*.scss", "js/functions.js"],
+                files: ["scss/**/*.scss", "js/**/*.ts"],
                 tasks: ["sass", "stylelint", "postcss", "webpack:prod"],
             },
             dev: {
-                files: ["scss/**/*.scss", "js/functions.js"],
+                files: ["scss/**/*.scss", "js/**/*.ts"],
                 tasks: ["sass", "stylelint", "postcss", "webpack:dev"],
             },
         },
