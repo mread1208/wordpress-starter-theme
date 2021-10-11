@@ -1,3 +1,5 @@
+import "../scss/style.scss";
+
 const overlay = (function () {
     var overlayElement = document.createElement("div");
     overlayElement.classList.add("mr-overlay");
